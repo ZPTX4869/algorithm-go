@@ -1,8 +1,8 @@
 package lists
 
 import (
+	"algorithm-go/structure/linkedlist"
 	"fmt"
-	"learn-algorithm/structure/linkedlist"
 	"testing"
 )
 

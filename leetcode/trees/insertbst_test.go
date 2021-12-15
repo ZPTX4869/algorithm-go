@@ -1,8 +1,8 @@
 package trees
 
 import (
+	"algorithm-go/structure/btree"
 	"fmt"
-	"learn-algorithm/structure/btree"
 	"testing"
 )
 
