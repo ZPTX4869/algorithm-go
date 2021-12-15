@@ -1,5 +1,6 @@
 package lists
 
+// 循环
 func reverseList(head *ListNode) *ListNode {
 	var pre *ListNode
 	cur := head
@@ -14,6 +15,7 @@ func reverseList(head *ListNode) *ListNode {
 	return pre
 }
 
+// 递归
 //func reverseList(head *ListNode) *ListNode {
 //	if head == nil || head.Next == nil {
 //		return head
@@ -36,23 +38,53 @@ func reverseList2(head *ListNode, left int, right int) *ListNode {
 		Next: head,
 	}
 
-	pre := dummy
-	cur := head
-	shift := 0
-	for ; shift < left-1; shift++ {
-		pre, cur = pre.Next, cur.Next
+	prev, curr := dummy, head
+	for i := 0; i < left-1; i++ {
+		prev, curr = prev.Next, curr.Next
 	}
 
-	start := cur
-	for ; shift < right; shift++ {
-		next := cur.Next
-		cur.Next = pre
-		pre = cur
-		cur = next
-	}
+	for i := left; i < right && curr.Next != nil; i++ {
+		next := curr.Next
+		curr.Next = next.Next
+		next.Next = prev.Next
+		prev.Next = next
 
-	start.Next.Next = pre
-	start.Next = cur
+		if next.Val == right {
+			break
+		}
+	}
 
 	return dummy.Next
 }
+
+// 逐个反转法
+//func reverseList2(head *ListNode, left int, right int) *ListNode {
+//	if head.Next == nil {
+//		return head
+//	}
+//
+//	dummy := &ListNode{
+//		Val:  0,
+//		Next: head,
+//	}
+//
+//	pre := dummy
+//	cur := head
+//	shift := 0
+//	for ; shift < left-1; shift++ {
+//		pre, cur = pre.Next, cur.Next
+//	}
+//
+//	start := cur
+//	for ; shift < right; shift++ {
+//		next := cur.Next
+//		cur.Next = pre
+//		pre = cur
+//		cur = next
+//	}
+//
+//	start.Next.Next = pre
+//	start.Next = cur
+//
+//	return dummy.Next
+//}

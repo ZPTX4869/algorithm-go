@@ -15,7 +15,15 @@ func Test_reverseList(t *testing.T) {
 }
 
 func Test_reverseList2(t *testing.T) {
-	list := linkedlist.FromSlice([]int{5})
+	list := linkedlist.FromSlice([]int{1, 2, 3, 4, 5})
+	list.Traverse()
+
+	list.Head = reverseList2(list.Head, 2, 4)
+	fmt.Println(list.Traverse())
+}
+
+func Test_reverseList2_ext(t *testing.T) {
+	list := linkedlist.FromSlice([]int{3, 5})
 	list.Traverse()
 
 	list.Head = reverseList2(list.Head, 1, 1)
