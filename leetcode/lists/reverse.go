@@ -28,7 +28,7 @@ func reverseList(head *ListNode) *ListNode {
 //	return pre
 //}
 
-func reverseList2(head *ListNode, left int, right int) *ListNode {
+func reverseBetween(head *ListNode, left int, right int) *ListNode {
 	if head.Next == nil {
 		return head
 	}
@@ -58,7 +58,7 @@ func reverseList2(head *ListNode, left int, right int) *ListNode {
 }
 
 // 逐个反转法
-//func reverseList2(head *ListNode, left int, right int) *ListNode {
+//func reverseBetween(head *ListNode, left int, right int) *ListNode {
 //	if head.Next == nil {
 //		return head
 //	}

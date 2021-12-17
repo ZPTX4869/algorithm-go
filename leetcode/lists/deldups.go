@@ -1,5 +1,6 @@
 package lists
 
+// 保留一个重复的节点
 func deleteDuplicates(head *ListNode) *ListNode {
 	if head == nil {
 		return head
@@ -17,6 +18,7 @@ func deleteDuplicates(head *ListNode) *ListNode {
 	return head
 }
 
+// 删除所有重复的节点
 func deleteDuplicates2(head *ListNode) *ListNode {
 	if head == nil {
 		return nil
