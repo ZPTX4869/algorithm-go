@@ -38,14 +38,22 @@ func FromSlice(vals []int) LinkedList {
 func (l *LinkedList) Traverse() []int {
 	var nums []int
 
-	if l.Head == nil {
-		return nums
+	curr := l.Head
+	for curr != nil {
+		nums = append(nums, curr.Val)
+		curr = curr.Next
 	}
 
-	cur := l.Head
-	for cur != nil {
-		nums = append(nums, cur.Val)
-		cur = cur.Next
+	return nums
+}
+
+func Traverse(head *ListNode) []int {
+	var nums []int
+
+	curr := head
+	for curr != nil {
+		nums = append(nums, curr.Val)
+		curr = curr.Next
 	}
 
 	return nums

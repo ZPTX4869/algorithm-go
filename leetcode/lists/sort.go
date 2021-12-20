@@ -1,7 +1,7 @@
 package lists
 
 func sortList(head *ListNode) *ListNode {
-	return mergeSort(head)
+	return mergeSort(head, nil)
 }
 
 func merge(left, right *ListNode) *ListNode {
@@ -29,70 +29,68 @@ func merge(left, right *ListNode) *ListNode {
 	return dummy.Next
 }
 
-// 循环：自底向上
-func mergeSort(head *ListNode) *ListNode {
+//递归：自顶向下
+func mergeSort(head, tail *ListNode) *ListNode {
 	if head == nil {
 		return head
 	}
 
-	length := 0
-	for cur := head; cur != nil; cur = cur.Next {
-		length++
+	if head.Next == tail {
+		head.Next = nil
+		return head
 	}
 
-	dummy := &ListNode{Next: head}
-	for subLength := 1; subLength < length; subLength <<= 1 {
-		prev, curr := dummy, dummy.Next
-		for curr != nil {
-			p1 := curr
-			for i := 1; i < subLength && curr.Next != nil; i++ {
-				curr = curr.Next
-			}
-
-			p2 := curr.Next
-			curr.Next = nil
-			curr = p2
-			for i := 1; i < subLength && curr != nil && curr.Next != nil; i++ {
-				curr = curr.Next
-			}
-
-			var next *ListNode
-			if curr != nil {
-				next = curr.Next
-				curr.Next = nil
-			}
-
-			prev.Next = merge(p1, p2)
-			for prev.Next != nil {
-				prev = prev.Next
-			}
-			curr = next
-		}
+	slow, fast := head, head
+	for fast != tail {
+		slow, fast = slow.Next, fast.Next.Next
 	}
-	return dummy.Next
+
+	mid := slow
+	left := mergeSort(head, mid)
+	right := mergeSort(mid, tail)
+	return merge(left, right)
 }
 
-// 递归：自顶向下
-//func mergeSort(head, tail *ListNode) *ListNode {
+// 循环：自底向上
+//func mergeSort(head *ListNode) *ListNode {
 //	if head == nil {
 //		return head
 //	}
 //
-//	if head.Next == tail {
-//		head.Next = nil
-//		return head
+//	length := 0
+//	for cur := head; cur != nil; cur = cur.Next {
+//		length++
 //	}
 //
-//	slow, fast := head, head
-//	for fast != tail {
-//		slow, fast = slow.Next, fast.Next
-//		if fast != tail {
-//			fast = fast.Next
+//	dummy := &ListNode{Next: head}
+//	// 外循环不断增加待排序的子链表长度
+//	for subLength := 1; subLength < length; subLength <<= 1 {
+//		prev, curr := dummy, dummy.Next
+//		for curr != nil {
+//			p1 := curr
+//			for i := 1; i < subLength && curr.Next != nil; i++ {
+//				curr = curr.Next
+//			}
+//
+//			p2 := curr.Next
+//			curr.Next = nil
+//			curr = p2
+//			for i := 1; i < subLength && curr != nil && curr.Next != nil; i++ {
+//				curr = curr.Next
+//			}
+//
+//			var next *ListNode
+//			if curr != nil {
+//				next = curr.Next
+//				curr.Next = nil
+//			}
+//
+//			prev.Next = merge(p1, p2)
+//			for prev.Next != nil {
+//				prev = prev.Next
+//			}
+//			curr = next
 //		}
 //	}
-//
-//	mid := slow
-//	left := mergeSort(head, mid)
-//	right := mergeSort(mid, tail)
-//	return merge(left, right)
+//	return dummy.Next
 //}
