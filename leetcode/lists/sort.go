@@ -1,22 +1,7 @@
 package lists
 
 func sortList(head *ListNode) *ListNode {
-	if head == nil {
-		return head
-	}
-
 	return mergeSort(head)
-}
-
-func mergeSort(head *ListNode) *ListNode {
-	if head.Next == nil {
-		return head
-	}
-
-	mid := find(head)
-	left := mergeSort(head)
-	right := mergeSort(mid)
-	return merge(left, right)
 }
 
 func merge(left, right *ListNode) *ListNode {
@@ -44,74 +29,70 @@ func merge(left, right *ListNode) *ListNode {
 	return dummy.Next
 }
 
-func find(head *ListNode) *ListNode {
-	var prev *ListNode
-	slow, quick := head, head
-	for quick != nil && quick.Next != nil {
-		quick = quick.Next.Next
-		prev = slow
-		slow = slow.Next
+// 循环：自底向上
+func mergeSort(head *ListNode) *ListNode {
+	if head == nil {
+		return head
 	}
 
-	if prev != nil {
-		prev.Next = nil
+	length := 0
+	for cur := head; cur != nil; cur = cur.Next {
+		length++
 	}
 
-	return slow
+	dummy := &ListNode{Next: head}
+	for subLength := 1; subLength < length; subLength <<= 1 {
+		prev, curr := dummy, dummy.Next
+		for curr != nil {
+			p1 := curr
+			for i := 1; i < subLength && curr.Next != nil; i++ {
+				curr = curr.Next
+			}
+
+			p2 := curr.Next
+			curr.Next = nil
+			curr = p2
+			for i := 1; i < subLength && curr != nil && curr.Next != nil; i++ {
+				curr = curr.Next
+			}
+
+			var next *ListNode
+			if curr != nil {
+				next = curr.Next
+				curr.Next = nil
+			}
+
+			prev.Next = merge(p1, p2)
+			for prev.Next != nil {
+				prev = prev.Next
+			}
+			curr = next
+		}
+	}
+	return dummy.Next
 }
 
-//func sortList(head *ListNode) *ListNode {
+// 递归：自顶向下
+//func mergeSort(head, tail *ListNode) *ListNode {
 //	if head == nil {
 //		return head
 //	}
 //
-//	var slice []int
-//	for curr := head; curr != nil; curr = curr.Next {
-//		slice = append(slice, curr.Val)
+//	if head.Next == tail {
+//		head.Next = nil
+//		return head
 //	}
 //
-//	mergeSort(slice, 0, len(slice)-1)
-//
-//	curr := head
-//	for _, val := range slice {
-//		curr.Val = val
-//		curr = curr.Next
-//	}
-//
-//	return head
-//}
-//
-//func mergeSort(slice []int, left, right int) {
-//	if left == right {
-//		return
-//	}
-//
-//	// 最好不要写成 (left + right)/2 ，这样可能造成整型溢出
-//	mid := left + (right-left)/2
-//	mergeSort(slice, left, mid)
-//	mergeSort(slice, mid+1, right)
-//
-//	merge(slice, left, mid, right)
-//}
-//
-//func merge(slice []int, left, mid, right int) {
-//	var newSlice []int
-//	lp, rp := left, mid+1
-//	for lp <= mid && rp <= right {
-//		if slice[lp] < slice[rp] {
-//			newSlice = append(newSlice, slice[lp])
-//			lp++
-//		} else {
-//			newSlice = append(newSlice, slice[rp])
-//			rp++
+//	slow, fast := head, head
+//	for fast != tail {
+//		slow, fast = slow.Next, fast.Next
+//		if fast != tail {
+//			fast = fast.Next
 //		}
 //	}
 //
-//	if lp > mid {
-//		newSlice = append(newSlice, slice[rp:right+1]...)
-//	} else {
-//		newSlice = append(newSlice, slice[lp:mid+1]...)
-//	}
-//
-//	copy(slice[left:right+1], newSlice)
+//	mid := slow
+//	left := mergeSort(head, mid)
+//	right := mergeSort(mid, tail)
+//	return merge(left, right)
 //}
