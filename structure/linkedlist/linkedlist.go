@@ -7,6 +7,7 @@ type ListNode struct {
 
 type LinkedList struct {
 	Head *ListNode
+	Tail *ListNode
 }
 
 func FromSlice(vals []int) LinkedList {
@@ -19,19 +20,20 @@ func FromSlice(vals []int) LinkedList {
 		Next: nil,
 	}
 
-	cur := head
+	curr := head
 	for _, val := range vals[1:] {
 		newNode := &ListNode{
 			Val:  val,
 			Next: nil,
 		}
 
-		cur.Next = newNode
-		cur = newNode
+		curr.Next = newNode
+		curr = newNode
 	}
 
 	return LinkedList{
 		Head: head,
+		Tail: curr,
 	}
 }
 

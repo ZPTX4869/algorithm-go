@@ -7,7 +7,7 @@ import (
 )
 
 func Test_reorderList(t *testing.T) {
-	tree := linkedlist.FromSlice([]int{1, 2, 3, 4, 5})
-	reorderList(tree.Head)
-	fmt.Println(tree.Traverse())
+	list := linkedlist.FromSlice([]int{1, 2, 3, 4, 5})
+	reorderList(list.Head)
+	fmt.Println(list.Traverse())
 }
