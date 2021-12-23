@@ -7,6 +7,6 @@ import (
 )
 
 func Test_isPalindrome(t *testing.T) {
-	list := linkedlist.FromSlice([]int{1, 0, 1})
+	list := linkedlist.FromSlice([]int{1, 1, 2, 1})
 	fmt.Println(isPalindrome(list.Head))
 }
