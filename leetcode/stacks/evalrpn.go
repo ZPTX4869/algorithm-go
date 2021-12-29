@@ -1,49 +1,31 @@
 package stacks
 
-import (
-	"log"
-	"strconv"
-)
+import "strconv"
 
 func evalRPN(tokens []string) int {
 	stack := make([]int, 0)
 
 	for _, token := range tokens {
-		var result int
-
-		if token == "+" {
-			num1, num2 := pop2(stack)
-			result = num2 + num1
-		} else if token == "-" {
-			num1, num2 := pop2(stack)
-			result = num2 - num1
-		} else if token == "*" {
-			num1, num2 := pop2(stack)
-			result = num2 * num1
-		} else if token == "/" {
-			num1, num2 := pop2(stack)
-			result = num2 / num1
+		val, err := strconv.Atoi(token)
+		if err == nil {
+			stack = append(stack, val)
 		} else {
-			num, err := strconv.Atoi(token)
-			if err != nil {
-				log.Fatalf("Error: %v occur when convert string to integer", err)
-			}
-			stack = append(stack, num)
-			continue
-		}
+			size := len(stack)
+			num1, num2 := stack[size-1], stack[size-2]
+			stack = stack[:size-2]
 
-		stack = stack[:len(stack)-2]
-		stack = append(stack, result)
+			switch token {
+			case "+":
+				stack = append(stack, num2+num1)
+			case "-":
+				stack = append(stack, num2-num1)
+			case "*":
+				stack = append(stack, num2*num1)
+			default:
+				stack = append(stack, num2/num1)
+			}
+		}
 	}
 
 	return stack[0]
-}
-
-func pop2(nums []int) (int, int) {
-	size := len(nums)
-
-	num1 := nums[size-1]
-	num2 := nums[size-2]
-
-	return num1, num2
 }
