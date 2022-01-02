@@ -6,6 +6,6 @@ import (
 )
 
 func Test_decodeString(t *testing.T) {
-	s := "10[leetcode]"
+	s := "3[a]2[bc]"
 	fmt.Println(decodeString(s))
 }

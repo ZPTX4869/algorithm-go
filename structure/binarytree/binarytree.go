@@ -51,70 +51,6 @@ func FromSlice(vals []int) BinaryTree {
 	}
 }
 
-func (t *BinaryTree) LevelTraverse() []int {
-	var result []int
-
-	if t.Root == nil {
-		panic("Root can not be nil!")
-	}
-
-	var queue []*TreeNode
-	queue = append(queue, t.Root)
-
-	for len(queue) > 0 {
-		cur := queue[0]
-		result = append(result, cur.Val)
-
-		if cur.Left != nil {
-			queue = append(queue, cur.Left)
-		}
-		if cur.Right != nil {
-			queue = append(queue, cur.Right)
-		}
-
-		queue = queue[1:]
-	}
-
-	return result
-}
-
-// PreorderTraverse todo: 完成前序遍历(非递归)
-func PreorderTraverse(root *TreeNode) []int {
-	return nil
-}
-
-func InorderTraverse(root *TreeNode) []int {
-	if root == nil {
-		panic("Root can not be empty")
-	}
-
-	var result []int
-	var stack []*TreeNode
-
-	for len(stack) > 0 || root != nil {
-		for root != nil {
-			stack = append(stack, root)
-			root = root.Left
-		}
-
-		cur := stack[len(stack)-1]
-		result = append(result, cur.Val)
-
-		if cur.Right != nil {
-			root = cur.Right
-		}
-
-		stack = stack[0 : len(stack)-1]
-	}
-
-	return result
-}
-
-// PostorderTraverse todo: 完成后序遍历(非递归)
-func PostorderTraverse(root *TreeNode) []int {
-	return nil
-}
-
 func delNull(root *TreeNode) {
 	if root == nil {
 		panic("Root can not be nil!")
@@ -143,4 +79,63 @@ func delNull(root *TreeNode) {
 
 		queue = queue[1:]
 	}
+}
+
+func (t *BinaryTree) LevelTraverse() []int {
+	var result []int
+
+	if t.Root == nil {
+		panic("Root can not be nil!")
+	}
+
+	var queue []*TreeNode
+	queue = append(queue, t.Root)
+
+	for len(queue) > 0 {
+		cur := queue[0]
+		result = append(result, cur.Val)
+
+		if cur.Left != nil {
+			queue = append(queue, cur.Left)
+		}
+		if cur.Right != nil {
+			queue = append(queue, cur.Right)
+		}
+
+		queue = queue[1:]
+	}
+
+	return result
+}
+
+func (t *BinaryTree) PreorderTraverse() []int {
+	return nil
+}
+
+func (t *BinaryTree) InorderTraverse() []int {
+	var result []int
+
+	root := t.Root
+	if root == nil {
+		return result
+	}
+
+	var stack []*TreeNode
+	for len(stack) > 0 || root != nil {
+		for root != nil {
+			stack = append(stack, root)
+			root = root.Left
+		}
+
+		curr := stack[len(stack)-1]
+		stack = stack[0 : len(stack)-1]
+		result = append(result, curr.Val)
+		root = curr.Right
+	}
+
+	return result
+}
+
+func (t *BinaryTree) PostorderTraverse() []int {
+	return nil
 }

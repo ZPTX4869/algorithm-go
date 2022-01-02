@@ -24,15 +24,15 @@ func TestPreorderTraverse(t *testing.T) {
 	vals := []int{1, 2, 3}
 	tree := FromSlice(vals)
 
-	result := PreorderTraverse(tree.Root)
+	result := tree.PreorderTraverse()
 	fmt.Println(result)
 }
 
 func TestInorderTraverse(t *testing.T) {
-	vals := []int{1, 2, 3}
+	vals := []int{1, 2, 3, null, 4, null, 5}
 	tree := FromSlice(vals)
 
-	result := InorderTraverse(tree.Root)
+	result := tree.InorderTraverse()
 	fmt.Println(result)
 }
 
@@ -40,6 +40,6 @@ func TestPostorderTraverse(t *testing.T) {
 	vals := []int{1, 2, 3}
 	tree := FromSlice(vals)
 
-	result := PostorderTraverse(tree.Root)
+	result := tree.PostorderTraverse()
 	fmt.Println(result)
 }

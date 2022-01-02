@@ -6,6 +6,7 @@ import (
 	"strings"
 )
 
+// 双栈解法
 func decodeString(s string) string {
 	var res string
 	numStk := make([]int, 0)
@@ -42,6 +43,12 @@ func decodeString(s string) string {
 	return res
 }
 
+// 递归解法
+//func decodeString(s string) string {
+//	ptr := 0
+//	return getString(s, &ptr)
+//}
+
 func getDigit(s string, ptr *int) int {
 	digitStr := ""
 	for ; s[*ptr] >= '0' && s[*ptr] <= '9'; *ptr++ {
@@ -54,4 +61,28 @@ func getDigit(s string, ptr *int) int {
 	}
 
 	return digit
+}
+
+func getString(s string, ptr *int) string {
+	if *ptr == len(s) || s[*ptr] == ']' {
+		return ""
+	}
+
+	ret := ""
+	cur := s[*ptr]
+	rep := 1
+	if cur >= '0' && cur <= '9' {
+		rep = getDigit(s, ptr)
+		*ptr++
+
+		sub := getString(s, ptr)
+		*ptr++
+
+		ret = strings.Repeat(sub, rep) + getString(s, ptr)
+	} else {
+		*ptr++
+		ret = string(cur) + getString(s, ptr)
+	}
+
+	return ret
 }

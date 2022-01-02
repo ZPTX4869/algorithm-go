@@ -12,5 +12,5 @@ func Test_insertIntoBST(t *testing.T) {
 	fmt.Println(tree.LevelTraverse())
 
 	tree.Root = insertIntoBST(tree.Root, 88)
-	fmt.Println(binarytree.InorderTraverse(tree.Root))
+	fmt.Println(tree.InorderTraverse())
 }
