@@ -1,4 +1,4 @@
-package stacks
+package queues
 
 type Node struct {
 	Val       int
