@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func TestMinStack(t *testing.T) {
+func TestMiniStack(t *testing.T) {
 	minStack := Constructor()
 	minStack.Push(-2)
 	minStack.Push(0)
