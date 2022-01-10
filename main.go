@@ -1,8 +1,14 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"runtime"
+	"unsafe"
+)
 
 func main() {
-	distMat := make([][]int, 5, 6)
-	fmt.Println(len(distMat), len(distMat[0]))
+	var a uint
+	var b int
+	fmt.Println(runtime.GOARCH)
+	fmt.Println(unsafe.Sizeof(a), unsafe.Sizeof(b))
 }
