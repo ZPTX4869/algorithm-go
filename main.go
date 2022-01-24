@@ -2,13 +2,15 @@ package main
 
 import (
 	"fmt"
-	"unsafe"
 )
 
-func main() {
-	var a uint
-	var b int
-	fmt.Println(unsafe.Sizeof(a), unsafe.Sizeof(b))
+func A(nums []int) {
+	nums[0] = 0
+}
 
-	fmt.Println(1 << 32)
+func main() {
+	nums := []int{1, 2, 3}
+	A(nums)
+
+	fmt.Println(nums)
 }
