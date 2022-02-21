@@ -139,3 +139,27 @@ func (t *BinaryTree) InorderTraverse() []int {
 func (t *BinaryTree) PostorderTraverse() []int {
 	return nil
 }
+
+func LevelTraverse(root *TreeNode) []int {
+	if root == nil {
+		panic("Root can not be nil!")
+	}
+
+	queue := []*TreeNode{root}
+	result := make([]int, 0)
+
+	for len(queue) > 0 {
+		cur := queue[0]
+		queue = queue[1:]
+		result = append(result, cur.Val)
+
+		if cur.Left != nil {
+			queue = append(queue, cur.Left)
+		}
+		if cur.Right != nil {
+			queue = append(queue, cur.Right)
+		}
+	}
+
+	return result
+}

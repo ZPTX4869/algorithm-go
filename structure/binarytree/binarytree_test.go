@@ -12,7 +12,7 @@ func TestNewBinaryTree(t *testing.T) {
 	fmt.Println(tree.Root.Val)
 }
 
-func TestBinaryTree_LevelTraverse(t *testing.T) {
+func TestFromSlice(t *testing.T) {
 	vals := []int{1, 2, 3, null, 4, null, 5}
 	tree := FromSlice(vals)
 
@@ -41,5 +41,13 @@ func TestPostorderTraverse(t *testing.T) {
 	tree := FromSlice(vals)
 
 	result := tree.PostorderTraverse()
+	fmt.Println(result)
+}
+
+func TestLevelTraverse(t *testing.T) {
+	vals := []int{1, 2, 3}
+	tree := FromSlice(vals)
+
+	result := LevelTraverse(tree.Root)
 	fmt.Println(result)
 }
