@@ -5,7 +5,5 @@ import (
 )
 
 func main() {
-	fmt.Println("Hello World!")
-	var reachable bool
-	fmt.Println(reachable)
+	fmt.Println('A')
 }
