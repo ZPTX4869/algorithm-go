@@ -3,6 +3,8 @@ package binarytree
 import (
 	"fmt"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestNewBinaryTree(t *testing.T) {
@@ -45,9 +47,9 @@ func TestPostorderTraverse(t *testing.T) {
 }
 
 func TestLevelTraverse(t *testing.T) {
-	vals := []int{1, 2, 3}
+	vals := []int{2, 2, 2}
 	tree := FromSlice(vals)
 
 	result := LevelTraverse(tree.Root)
-	fmt.Println(result)
+	assert.Equal(t, vals, result)
 }

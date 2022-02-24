@@ -5,5 +5,6 @@ import (
 )
 
 func main() {
-	fmt.Println('A')
+	m := map[byte]int{}
+	fmt.Println(m['a'])
 }
