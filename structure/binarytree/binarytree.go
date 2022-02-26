@@ -1,6 +1,8 @@
 package binarytree
 
-import "math"
+import (
+	"math"
+)
 
 const null = math.MaxInt64
 
@@ -81,65 +83,6 @@ func delNull(root *TreeNode) {
 	}
 }
 
-func (t *BinaryTree) LevelTraverse() []int {
-	var result []int
-
-	if t.Root == nil {
-		panic("Root can not be nil!")
-	}
-
-	var queue []*TreeNode
-	queue = append(queue, t.Root)
-
-	for len(queue) > 0 {
-		cur := queue[0]
-		result = append(result, cur.Val)
-
-		if cur.Left != nil {
-			queue = append(queue, cur.Left)
-		}
-		if cur.Right != nil {
-			queue = append(queue, cur.Right)
-		}
-
-		queue = queue[1:]
-	}
-
-	return result
-}
-
-func (t *BinaryTree) PreorderTraverse() []int {
-	return nil
-}
-
-func (t *BinaryTree) InorderTraverse() []int {
-	var result []int
-
-	root := t.Root
-	if root == nil {
-		return result
-	}
-
-	var stack []*TreeNode
-	for len(stack) > 0 || root != nil {
-		for root != nil {
-			stack = append(stack, root)
-			root = root.Left
-		}
-
-		curr := stack[len(stack)-1]
-		stack = stack[0 : len(stack)-1]
-		result = append(result, curr.Val)
-		root = curr.Right
-	}
-
-	return result
-}
-
-func (t *BinaryTree) PostorderTraverse() []int {
-	return nil
-}
-
 func LevelTraverse(root *TreeNode) []int {
 	if root == nil {
 		panic("Root can not be nil!")
@@ -162,4 +105,48 @@ func LevelTraverse(root *TreeNode) []int {
 	}
 
 	return result
+}
+
+func PreorderTraverse(root *TreeNode) []int {
+	ans := []int{}
+	stack := []*TreeNode{}
+
+	for len(stack) != 0 || root != nil {
+		for root != nil {
+			ans = append(ans, root.Val)
+			stack = append(stack, root)
+			root = root.Left
+		}
+
+		curr := stack[len(stack)-1]
+		stack = stack[0:len(stack)-1]
+
+		if curr.Right != nil {
+			root = curr.Right
+		}
+	}
+
+	return ans
+}
+
+func InorderTraverse(root *TreeNode) []int {
+	ans := []int{}
+	stack := []*TreeNode{}
+
+	for len(stack) != 0 || root != nil {
+		for root != nil {
+			stack = append(stack, root)
+			root = root.Left
+		}
+
+		curr := stack[len(stack)-1]
+		stack = stack[0:len(stack)-1]
+		ans = append(ans, curr.Val)
+
+		if curr.Right != nil {
+			root = curr.Right
+		}
+	}
+
+	return ans
 }

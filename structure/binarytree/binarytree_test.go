@@ -1,55 +1,35 @@
 package binarytree
 
 import (
-	"fmt"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
 )
 
-func TestNewBinaryTree(t *testing.T) {
-	vals := []int{1, 2, 3, null, 4, null, 5}
-	tree := FromSlice(vals)
-
-	fmt.Println(tree.Root.Val)
-}
-
 func TestFromSlice(t *testing.T) {
-	vals := []int{1, 2, 3, null, 4, null, 5}
-	tree := FromSlice(vals)
+	tree := FromSlice([]int{1, 2, 3, null, 4, null, 5})
+	ans := LevelTraverse(tree.Root)
 
-	result := tree.LevelTraverse()
-	fmt.Println(result)
-}
-
-func TestPreorderTraverse(t *testing.T) {
-	vals := []int{1, 2, 3}
-	tree := FromSlice(vals)
-
-	result := tree.PreorderTraverse()
-	fmt.Println(result)
-}
-
-func TestInorderTraverse(t *testing.T) {
-	vals := []int{1, 2, 3, null, 4, null, 5}
-	tree := FromSlice(vals)
-
-	result := tree.InorderTraverse()
-	fmt.Println(result)
-}
-
-func TestPostorderTraverse(t *testing.T) {
-	vals := []int{1, 2, 3}
-	tree := FromSlice(vals)
-
-	result := tree.PostorderTraverse()
-	fmt.Println(result)
+	assert.Equal(t, []int{1, 2, 3, 4, 5}, ans)
 }
 
 func TestLevelTraverse(t *testing.T) {
-	vals := []int{2, 2, 2}
-	tree := FromSlice(vals)
+	tree := FromSlice([]int{1, 2, 3, null, 4, null, 5})
+	ans := LevelTraverse(tree.Root)
 
-	result := LevelTraverse(tree.Root)
-	assert.Equal(t, vals, result)
+	assert.Equal(t, []int{1, 2, 3, 4, 5}, ans)
+}
+
+func TestPreorderTraverse(t *testing.T) {
+	tree := FromSlice([]int{1, 2, 3, null, 4, null, 5})
+	ans := PreorderTraverse(tree.Root)
+
+	assert.Equal(t, []int{1, 2, 4, 3, 5}, ans)
+}
+
+func TestInorderTraverse(t *testing.T) {
+	tree := FromSlice([]int{1, 2, 3, null, 4, null, 5})
+	ans := InorderTraverse(tree.Root)
+
+	assert.Equal(t, []int{2, 4, 1, 3, 5}, ans)
 }
