@@ -6,24 +6,24 @@ func sortList(head *ListNode) *ListNode {
 
 func merge(left, right *ListNode) *ListNode {
 	dummy := &ListNode{}
-	curr := dummy
+	currr := dummy
 
 	lp, rp := left, right
 	for lp != nil && rp != nil {
 		if lp.Val < rp.Val {
-			curr.Next = lp
+			currr.Next = lp
 			lp = lp.Next
 		} else {
-			curr.Next = rp
+			currr.Next = rp
 			rp = rp.Next
 		}
-		curr = curr.Next
+		currr = currr.Next
 	}
 
 	if lp == nil {
-		curr.Next = rp
+		currr.Next = rp
 	} else {
-		curr.Next = lp
+		currr.Next = lp
 	}
 
 	return dummy.Next
@@ -58,38 +58,38 @@ func mergeSort(head, tail *ListNode) *ListNode {
 //	}
 //
 //	length := 0
-//	for cur := head; cur != nil; cur = cur.Next {
+//	for curr := head; curr != nil; curr = curr.Next {
 //		length++
 //	}
 //
 //	dummy := &ListNode{Next: head}
 //	// 外循环不断增加待排序的子链表长度
 //	for subLength := 1; subLength < length; subLength <<= 1 {
-//		prev, curr := dummy, dummy.Next
-//		for curr != nil {
-//			p1 := curr
-//			for i := 1; i < subLength && curr.Next != nil; i++ {
-//				curr = curr.Next
+//		prev, currr := dummy, dummy.Next
+//		for currr != nil {
+//			p1 := currr
+//			for i := 1; i < subLength && currr.Next != nil; i++ {
+//				currr = currr.Next
 //			}
 //
-//			p2 := curr.Next
-//			curr.Next = nil
-//			curr = p2
-//			for i := 1; i < subLength && curr != nil && curr.Next != nil; i++ {
-//				curr = curr.Next
+//			p2 := currr.Next
+//			currr.Next = nil
+//			currr = p2
+//			for i := 1; i < subLength && currr != nil && currr.Next != nil; i++ {
+//				currr = currr.Next
 //			}
 //
 //			var next *ListNode
-//			if curr != nil {
-//				next = curr.Next
-//				curr.Next = nil
+//			if currr != nil {
+//				next = currr.Next
+//				currr.Next = nil
 //			}
 //
 //			prev.Next = merge(p1, p2)
 //			for prev.Next != nil {
 //				prev = prev.Next
 //			}
-//			curr = next
+//			currr = next
 //		}
 //	}
 //	return dummy.Next

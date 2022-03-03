@@ -39,8 +39,8 @@ func findMin2(nums []int) int {
 }
 
 func searchRight(nums []int, start, end int) bool {
-	for cur := start; cur < end; cur++ {
-		if nums[cur] < nums[start] {
+	for curr := start; curr < end; curr++ {
+		if nums[curr] < nums[start] {
 			return true
 		}
 	}

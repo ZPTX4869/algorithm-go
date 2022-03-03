@@ -44,8 +44,8 @@ func minimumTotal(triangle [][]int) int {
 //		return 0
 //	}
 //
-//	cur := triangle[row][col]
-//	return getMin(dfs(triangle, row+1, col)+cur, dfs(triangle, row+1, col+1)+cur)
+//	curr := triangle[row][col]
+//	return getMin(dfs(triangle, row+1, col)+curr, dfs(triangle, row+1, col+1)+curr)
 //}
 
 // 自定向下递归

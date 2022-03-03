@@ -30,12 +30,12 @@ func FromSlice(vals []int) BinaryTree {
 
 	for _, val := range vals[1:] {
 		newNode := &TreeNode{Val: val}
-		cur := queue[0]
+		curr := queue[0]
 
-		if cur.Left == nil {
-			cur.Left = newNode
-		} else if cur.Right == nil {
-			cur.Right = newNode
+		if curr.Left == nil {
+			curr.Left = newNode
+		} else if curr.Right == nil {
+			curr.Right = newNode
 			queue = queue[1:]
 		}
 
@@ -62,20 +62,20 @@ func delNull(root *TreeNode) {
 	queue = append(queue, root)
 
 	for len(queue) > 0 {
-		cur := queue[0]
+		curr := queue[0]
 
-		if cur.Left != nil {
-			if cur.Left.Val == null {
-				cur.Left = nil
+		if curr.Left != nil {
+			if curr.Left.Val == null {
+				curr.Left = nil
 			} else {
-				queue = append(queue, cur.Left)
+				queue = append(queue, curr.Left)
 			}
 		}
-		if cur.Right != nil {
-			if cur.Right.Val == null {
-				cur.Right = nil
+		if curr.Right != nil {
+			if curr.Right.Val == null {
+				curr.Right = nil
 			} else {
-				queue = append(queue, cur.Right)
+				queue = append(queue, curr.Right)
 			}
 		}
 
@@ -92,15 +92,15 @@ func LevelTraverse(root *TreeNode) []int {
 	result := make([]int, 0)
 
 	for len(queue) > 0 {
-		cur := queue[0]
+		curr := queue[0]
 		queue = queue[1:]
-		result = append(result, cur.Val)
+		result = append(result, curr.Val)
 
-		if cur.Left != nil {
-			queue = append(queue, cur.Left)
+		if curr.Left != nil {
+			queue = append(queue, curr.Left)
 		}
-		if cur.Right != nil {
-			queue = append(queue, cur.Right)
+		if curr.Right != nil {
+			queue = append(queue, curr.Right)
 		}
 	}
 
@@ -118,11 +118,11 @@ func PreorderTraverse(root *TreeNode) []int {
 			root = root.Left
 		}
 
-		curr := stack[len(stack)-1]
+		currr := stack[len(stack)-1]
 		stack = stack[0:len(stack)-1]
 
-		if curr.Right != nil {
-			root = curr.Right
+		if currr.Right != nil {
+			root = currr.Right
 		}
 	}
 
@@ -139,12 +139,12 @@ func InorderTraverse(root *TreeNode) []int {
 			root = root.Left
 		}
 
-		curr := stack[len(stack)-1]
+		currr := stack[len(stack)-1]
 		stack = stack[0:len(stack)-1]
-		ans = append(ans, curr.Val)
+		ans = append(ans, currr.Val)
 
-		if curr.Right != nil {
-			root = curr.Right
+		if currr.Right != nil {
+			root = currr.Right
 		}
 	}
 

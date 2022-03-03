@@ -4,10 +4,10 @@ func countBits(n int) []int {
 	res := make([]int, 0)
 
 	for i := 0; i <= n; i++ {
-		cur := i
+		curr := i
 		cnt := 0
-		for cur != 0 {
-			cur = (cur - 1) & cur
+		for curr != 0 {
+			curr = (curr - 1) & curr
 			cnt += 1
 		}
 		res = append(res, cnt)

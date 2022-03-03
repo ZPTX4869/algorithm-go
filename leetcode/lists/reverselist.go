@@ -2,16 +2,16 @@ package lists
 
 // 循环
 func reverseList(head *ListNode) *ListNode {
-	var pre *ListNode
-	cur := head
-	for cur != nil {
-		next := cur.Next
-		cur.Next = pre
-		pre = cur
-		cur = next
+	var prev *ListNode
+	curr := head
+	for curr != nil {
+		next := curr.Next
+		curr.Next = prev
+		prev = curr
+		curr = next
 	}
 
-	return pre
+	return prev
 }
 
 // 递归
@@ -20,11 +20,11 @@ func reverseList(head *ListNode) *ListNode {
 //		return head
 //	}
 //
-//	pre := reverseList(head.Next)
+//	prev := reverseList(head.Next)
 //	head.Next.Next = head
 //	head.Next = nil
 //
-//	return pre
+//	return prev
 //}
 
 func reverseBetween(head *ListNode, left int, right int) *ListNode {
@@ -37,16 +37,16 @@ func reverseBetween(head *ListNode, left int, right int) *ListNode {
 		Next: head,
 	}
 
-	prev, curr := dummy, head
+	prevv, currr := dummy, head
 	for i := 0; i < left-1; i++ {
-		prev, curr = prev.Next, curr.Next
+		prevv, currr = prevv.Next, currr.Next
 	}
 
-	for i := left; i < right && curr.Next != nil; i++ {
-		next := curr.Next
-		curr.Next = next.Next
-		next.Next = prev.Next
-		prev.Next = next
+	for i := left; i < right && currr.Next != nil; i++ {
+		next := currr.Next
+		currr.Next = next.Next
+		next.Next = prevv.Next
+		prevv.Next = next
 
 		if next.Val == right {
 			break
@@ -67,23 +67,23 @@ func reverseBetween(head *ListNode, left int, right int) *ListNode {
 //		Next: head,
 //	}
 //
-//	pre := dummy
-//	cur := head
+//	prev := dummy
+//	curr := head
 //	shift := 0
 //	for ; shift < left-1; shift++ {
-//		pre, cur = pre.Next, cur.Next
+//		prev, curr = prev.Next, curr.Next
 //	}
 //
-//	start := cur
+//	start := curr
 //	for ; shift < right; shift++ {
-//		next := cur.Next
-//		cur.Next = pre
-//		pre = cur
-//		cur = next
+//		next := curr.Next
+//		curr.Next = prev
+//		prev = curr
+//		curr = next
 //	}
 //
-//	start.Next.Next = pre
-//	start.Next = cur
+//	start.Next.Next = prev
+//	start.Next = curr
 //
 //	return dummy.Next
 //}

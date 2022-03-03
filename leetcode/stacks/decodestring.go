@@ -69,9 +69,9 @@ func getString(s string, ptr *int) string {
 	}
 
 	ret := ""
-	cur := s[*ptr]
+	curr := s[*ptr]
 	rep := 1
-	if cur >= '0' && cur <= '9' {
+	if curr >= '0' && curr <= '9' {
 		rep = getDigit(s, ptr)
 		*ptr++
 
@@ -81,7 +81,7 @@ func getString(s string, ptr *int) string {
 		ret = strings.Repeat(sub, rep) + getString(s, ptr)
 	} else {
 		*ptr++
-		ret = string(cur) + getString(s, ptr)
+		ret = string(curr) + getString(s, ptr)
 	}
 
 	return ret

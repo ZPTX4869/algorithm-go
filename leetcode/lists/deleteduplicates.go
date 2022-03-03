@@ -6,12 +6,12 @@ func deleteDuplicates(head *ListNode) *ListNode {
 		return head
 	}
 
-	cur := head
-	for cur.Next != nil {
-		if cur.Val == cur.Next.Val {
-			cur.Next = cur.Next.Next
+	curr := head
+	for curr.Next != nil {
+		if curr.Val == curr.Next.Val {
+			curr.Next = curr.Next.Next
 		} else {
-			cur = cur.Next
+			curr = curr.Next
 		}
 	}
 
@@ -29,15 +29,15 @@ func deleteDuplicates2(head *ListNode) *ListNode {
 		Next: head,
 	}
 
-	cur := dummy
-	for cur.Next != nil && cur.Next.Next != nil {
-		if cur.Next.Val == cur.Next.Next.Val {
-			x := cur.Next.Val
-			for cur.Next != nil && cur.Next.Val == x {
-				cur.Next = cur.Next.Next
+	curr := dummy
+	for curr.Next != nil && curr.Next.Next != nil {
+		if curr.Next.Val == curr.Next.Next.Val {
+			x := curr.Next.Val
+			for curr.Next != nil && curr.Next.Val == x {
+				curr.Next = curr.Next.Next
 			}
 		} else {
-			cur = cur.Next
+			curr = curr.Next
 		}
 	}
 
@@ -51,22 +51,22 @@ func deleteDuplicates2(head *ListNode) *ListNode {
 //	}
 //
 //	var isDup bool
-//	pre := dummy
-//	cur := dummy.Next
-//	for cur != nil && cur.Next != nil {
+//	prev := dummy
+//	curr := dummy.Next
+//	for curr != nil && curr.Next != nil {
 //		isDup = false
 //
-//		for cur.Next != nil && cur.Val == cur.Next.Val {
+//		for curr.Next != nil && curr.Val == curr.Next.Val {
 //			isDup = true
-//			cur.Next = cur.Next.Next
+//			curr.Next = curr.Next.Next
 //		}
 //
 //		if isDup {
-//			pre.Next = cur.Next
-//			cur = pre.Next
+//			prev.Next = curr.Next
+//			curr = prev.Next
 //		} else {
-//			pre = pre.Next
-//			cur = pre.Next
+//			prev = prev.Next
+//			curr = prev.Next
 //		}
 //
 //	}

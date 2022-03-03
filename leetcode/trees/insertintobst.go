@@ -9,20 +9,20 @@ func insertIntoBST(root *TreeNode, val int) *TreeNode {
 		return newNode
 	}
 
-	cur := root
-	for cur != nil {
-		if val < cur.Val {
-			if cur.Left == nil {
-				cur.Left = newNode
+	curr := root
+	for curr != nil {
+		if val < curr.Val {
+			if curr.Left == nil {
+				curr.Left = newNode
 				break
 			}
-			cur = cur.Left
+			curr = curr.Left
 		} else {
-			if cur.Right == nil {
-				cur.Right = newNode
+			if curr.Right == nil {
+				curr.Right = newNode
 				break
 			}
-			cur = cur.Right
+			curr = curr.Right
 		}
 	}
 
@@ -30,14 +30,14 @@ func insertIntoBST(root *TreeNode, val int) *TreeNode {
 }
 
 func insertIntoBST2(root *TreeNode, val int) *TreeNode {
-	curr := root
+	currr := root
 	stack := []*TreeNode{}
 
 	var node *TreeNode
-	for len(stack) != 0 || curr != nil {
-		for curr != nil {
-			stack = append(stack, curr)
-			curr = curr.Left
+	for len(stack) != 0 || currr != nil {
+		for currr != nil {
+			stack = append(stack, currr)
+			currr = currr.Left
 		}
 
 		node = stack[len(stack)-1]
@@ -53,7 +53,7 @@ func insertIntoBST2(root *TreeNode, val int) *TreeNode {
 		}
 
 		if node.Right != nil {
-			curr = node.Right
+			currr = node.Right
 		}
 	}
 
