@@ -2,9 +2,11 @@ package main
 
 import (
 	"fmt"
+	"sort"
 )
 
 func main() {
-	m := map[byte]int{}
-	fmt.Println(m['a'])
+	nums := []int{1, 3, 2}
+	sort.Ints(nums)
+	fmt.Println(nums)
 }

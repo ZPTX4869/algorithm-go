@@ -11,3 +11,10 @@ func Test_subsets(t *testing.T) {
 
 	fmt.Println(output)
 }
+
+func Test_subsetsWithDup(t *testing.T) {
+	input := []int{1, 2, 2}
+	output := subsetsWithDup(input)
+
+	fmt.Println(output)
+}
