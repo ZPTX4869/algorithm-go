@@ -1,7 +1,6 @@
 package backtracks
 
 import (
-	"math"
 	"sort"
 )
 
@@ -51,7 +50,7 @@ func permuteUnique(nums []int) [][]int {
 		}
 
 		for i := 0; i < len(nums); i++ {
-			if used[i] || i > 0 && nums[i]==nums[i-1] && !used[i-1] {
+			if used[i] || i > 0 && nums[i] == nums[i-1] && !used[i-1] {
 				continue
 			}
 
@@ -65,7 +64,7 @@ func permuteUnique(nums []int) [][]int {
 		}
 	}
 
-    sort.Ints(nums)
+	sort.Ints(nums)
 	backtrack()
 
 	return res

@@ -1,4 +1,4 @@
-package lists
+package offer
 
 import (
 	"fmt"
@@ -20,7 +20,7 @@ func Test_copyRandomList(t *testing.T) {
 	node3.Random = node2
 	node4.Random = node0
 
-	head := copyRandomList(node0)
+	head := copyRandomList2(node0)
 	for head != nil {
 		if head.Random != nil {
 			fmt.Printf("[%v, %v]", head.Val, head.Random.Val)
