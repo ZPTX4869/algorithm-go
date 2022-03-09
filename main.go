@@ -2,11 +2,14 @@ package main
 
 import (
 	"fmt"
-	"sort"
 )
 
 func main() {
-	nums := []int{1, 3, 2}
-	sort.Ints(nums)
-	fmt.Println(nums)
+	s := "hello"
+	for _, r := range s {
+		fmt.Println(r)
+	}
+	for i := 0; i < len(s); i++ {
+		fmt.Println(s[i])
+	}
 }
