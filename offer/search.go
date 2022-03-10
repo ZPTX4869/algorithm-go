@@ -50,3 +50,33 @@ func search2(nums []int, target int) int {
 
 	return res
 }
+
+func search3(nums []int, target int) int {
+	var res int
+	s, e := 0, len(nums)
+
+	for s != e {
+		mid := (e-s)/2 + s
+		
+		if target < nums[mid] {
+			e = mid
+		} else if target > nums[mid] {
+			s = mid + 1
+		} else {
+			l := mid
+			for l >= 0 && nums[l] == target {
+				l--
+			}
+
+			r := mid+1
+			for r < len(nums) && nums[r] == target {
+				r++
+			}
+
+			res = r - l - 1
+			break
+		}
+	}
+
+	return res
+}

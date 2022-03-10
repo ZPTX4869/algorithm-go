@@ -5,22 +5,35 @@ func missingNumber(nums []int) int {
 	var binarySearch func(s, e int)
 
 	binarySearch = func(s, e int) {
-		left := (e-s)/2 + s
-		right := left + 1
-
-		if nums[right] - nums[left] > 1 {
-			res = left+1
+		if s == e {
+			res = s
 			return
 		}
 
-		if (nums[left] - nums[s]) != (left - s) {
-			binarySearch(s, left)
-		} else if (nums[e]- nums[right]) != (e - right) {
-			binarySearch(right, e)
+		mid := (e-s)/2 + s
+
+		if nums[mid] == mid {
+			binarySearch(mid+1, e)
+		} else {
+			binarySearch(s, mid)
 		}
 	}
 
 	binarySearch(0, len(nums))
 
 	return res
+}
+
+func missingNumber2(nums []int) int {
+	s, e := 0, len(nums)
+	for s != e {
+		mid := (e-s)/2 + s
+		if nums[mid] == mid {
+			s = mid+1
+		} else {
+			e = mid
+		}
+	}
+
+	return s
 }
