@@ -1,0 +1,209 @@
+Date : 2022-03-14 10:12:06
+Directory : d:\Projects\go\algorithm-go
+Total : 159 files,  4530 codes, 660 comments, 1083 blanks, all 6273 lines
+
+Languages
++------------------+------------+------------+------------+------------+------------+
+| language         | files      | code       | comment    | blank      | total      |
++------------------+------------+------------+------------+------------+------------+
+| Go               |        156 |      4,504 |        660 |      1,075 |      6,239 |
+| Go Checksum File |          1 |         15 |          0 |          1 |         16 |
+| Go Module File   |          1 |          8 |          0 |          4 |         12 |
+| Markdown         |          1 |          3 |          0 |          3 |          6 |
++------------------+------------+------------+------------+------------+------------+
+
+Directories
++--------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                     | files      | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                        |        159 |      4,530 |        660 |      1,083 |      6,273 |
+| leetcode                                                                 |        115 |      3,151 |        623 |        756 |      4,530 |
+| leetcode\backtracks                                                      |          4 |        122 |          2 |         44 |        168 |
+| leetcode\binarys                                                         |         10 |        132 |         49 |         51 |        232 |
+| leetcode\dynamics                                                        |         22 |        849 |         82 |        130 |      1,061 |
+| leetcode\lists                                                           |         21 |        459 |        332 |        138 |        929 |
+| leetcode\queues                                                          |          8 |        242 |         38 |         64 |        344 |
+| leetcode\recurs                                                          |          9 |        154 |         25 |         40 |        219 |
+| leetcode\searchs                                                         |         12 |        323 |          3 |        101 |        427 |
+| leetcode\slides                                                          |          6 |        230 |          3 |         32 |        265 |
+| leetcode\sorts                                                           |          6 |        120 |          0 |         33 |        153 |
+| leetcode\stacks                                                          |          8 |        211 |         85 |         61 |        357 |
+| leetcode\trees                                                           |          9 |        309 |          4 |         62 |        375 |
+| offer                                                                    |         36 |      1,117 |         35 |        250 |      1,402 |
+| offer\arrays                                                             |          4 |         80 |          9 |         15 |        104 |
+| offer\lists                                                              |          7 |        180 |          1 |         53 |        234 |
+| offer\queues                                                             |          2 |         47 |          0 |         17 |         64 |
+| offer\searchs                                                            |          6 |        242 |         10 |         46 |        298 |
+| offer\stacks                                                             |          2 |         56 |          0 |         17 |         73 |
+| offer\strings                                                            |          6 |        130 |         10 |         27 |        167 |
+| offer\trees                                                              |          9 |        382 |          5 |         75 |        462 |
+| structure                                                                |          4 |        223 |          2 |         66 |        291 |
+| structure\binarytree                                                     |          2 |        143 |          2 |         44 |        189 |
+| structure\linkedlist                                                     |          2 |         80 |          0 |         22 |        102 |
++--------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++--------------------------------------------------------------------------+------------------+------------+------------+------------+------------+
+| filename                                                                 | language         | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------+------------------+------------+------------+------------+------------+
+| d:\Projects\go\algorithm-go\README.md                                    | Markdown         |          3 |          0 |          3 |          6 |
+| d:\Projects\go\algorithm-go\go.mod                                       | Go Module File   |          8 |          0 |          4 |         12 |
+| d:\Projects\go\algorithm-go\go.sum                                       | Go Checksum File |         15 |          0 |          1 |         16 |
+| d:\Projects\go\algorithm-go\leetcode\backtracks\permute.go               | Go               |         52 |          2 |         18 |         72 |
+| d:\Projects\go\algorithm-go\leetcode\backtracks\permute_test.go          | Go               |         15 |          0 |          6 |         21 |
+| d:\Projects\go\algorithm-go\leetcode\backtracks\subsets.go               | Go               |         40 |          0 |         14 |         54 |
+| d:\Projects\go\algorithm-go\leetcode\backtracks\subsets_test.go          | Go               |         15 |          0 |          6 |         21 |
+| d:\Projects\go\algorithm-go\leetcode\binarys\countbits.go                | Go               |         14 |         15 |          5 |         34 |
+| d:\Projects\go\algorithm-go\leetcode\binarys\countbits_test.go           | Go               |          9 |          0 |          3 |         12 |
+| d:\Projects\go\algorithm-go\leetcode\binarys\hammingweight.go            | Go               |          9 |         11 |          5 |         25 |
+| d:\Projects\go\algorithm-go\leetcode\binarys\hammingweight_test.go       | Go               |         10 |          0 |          3 |         13 |
+| d:\Projects\go\algorithm-go\leetcode\binarys\rangebitwiseand.go          | Go               |          7 |         18 |          5 |         30 |
+| d:\Projects\go\algorithm-go\leetcode\binarys\rangebitwiseand_test.go     | Go               |          9 |          0 |          3 |         12 |
+| d:\Projects\go\algorithm-go\leetcode\binarys\reversebits.go              | Go               |          9 |          5 |          5 |         19 |
+| d:\Projects\go\algorithm-go\leetcode\binarys\reversebits_test.go         | Go               |         10 |          0 |          3 |         13 |
+| d:\Projects\go\algorithm-go\leetcode\binarys\singlenumber.go             | Go               |         35 |          0 |         11 |         46 |
+| d:\Projects\go\algorithm-go\leetcode\binarys\singlenumber_test.go        | Go               |         20 |          0 |          8 |         28 |
+| d:\Projects\go\algorithm-go\leetcode\dynamics\backpack.go                | Go               |         59 |          0 |         11 |         70 |
+| d:\Projects\go\algorithm-go\leetcode\dynamics\backpack_test.go           | Go               |         69 |          2 |          4 |         75 |
+| d:\Projects\go\algorithm-go\leetcode\dynamics\climbstairs.go             | Go               |         10 |          0 |          4 |         14 |
+| d:\Projects\go\algorithm-go\leetcode\dynamics\climbstairs_test.go        | Go               |         34 |          1 |          3 |         38 |
+| d:\Projects\go\algorithm-go\leetcode\dynamics\coinchange.go              | Go               |         32 |          2 |          8 |         42 |
+| d:\Projects\go\algorithm-go\leetcode\dynamics\coinchange_test.go         | Go               |         53 |          1 |          3 |         57 |
+| d:\Projects\go\algorithm-go\leetcode\dynamics\jumpgame.go                | Go               |         31 |          0 |          7 |         38 |
+| d:\Projects\go\algorithm-go\leetcode\dynamics\jumpgame_test.go           | Go               |         68 |          2 |          4 |         74 |
+| d:\Projects\go\algorithm-go\leetcode\dynamics\lengthoflis.go             | Go               |         22 |          0 |          6 |         28 |
+| d:\Projects\go\algorithm-go\leetcode\dynamics\lengthoflis_test.go        | Go               |         41 |          1 |          3 |         45 |
+| d:\Projects\go\algorithm-go\leetcode\dynamics\longestcommsubs.go         | Go               |         24 |          0 |          5 |         29 |
+| d:\Projects\go\algorithm-go\leetcode\dynamics\longestcommsubs_test.go    | Go               |         53 |          1 |          3 |         57 |
+| d:\Projects\go\algorithm-go\leetcode\dynamics\minimumtotal.go            | Go               |         17 |         38 |          9 |         64 |
+| d:\Projects\go\algorithm-go\leetcode\dynamics\minimumtotal_test.go       | Go               |         14 |          0 |          4 |         18 |
+| d:\Projects\go\algorithm-go\leetcode\dynamics\minpathsum.go              | Go               |         28 |          0 |          6 |         34 |
+| d:\Projects\go\algorithm-go\leetcode\dynamics\minpathsum_test.go         | Go               |         13 |          0 |          4 |         17 |
+| d:\Projects\go\algorithm-go\leetcode\dynamics\palindrome.go              | Go               |         42 |         29 |         17 |         88 |
+| d:\Projects\go\algorithm-go\leetcode\dynamics\palindrome_test.go         | Go               |        113 |          3 |          5 |        121 |
+| d:\Projects\go\algorithm-go\leetcode\dynamics\uniquepaths.go             | Go               |         45 |          0 |         10 |         55 |
+| d:\Projects\go\algorithm-go\leetcode\dynamics\uniquepaths_test.go        | Go               |         17 |          0 |          5 |         22 |
+| d:\Projects\go\algorithm-go\leetcode\dynamics\wordbreak.go               | Go               |         19 |          1 |          6 |         26 |
+| d:\Projects\go\algorithm-go\leetcode\dynamics\wordbreak_test.go          | Go               |         45 |          1 |          3 |         49 |
+| d:\Projects\go\algorithm-go\leetcode\lists\constant.go                   | Go               |          3 |          0 |          3 |          6 |
+| d:\Projects\go\algorithm-go\leetcode\lists\copyrandomlist.go             | Go               |         30 |         56 |         11 |         97 |
+| d:\Projects\go\algorithm-go\leetcode\lists\copyrandomlist_test.go        | Go               |         32 |          0 |          8 |         40 |
+| d:\Projects\go\algorithm-go\leetcode\lists\deleteduplicates.go           | Go               |         36 |         31 |          9 |         76 |
+| d:\Projects\go\algorithm-go\leetcode\lists\deleteduplicates_test.go      | Go               |         18 |          0 |          6 |         24 |
+| d:\Projects\go\algorithm-go\leetcode\lists\detectcycle.go                | Go               |         20 |         17 |          6 |         43 |
+| d:\Projects\go\algorithm-go\leetcode\lists\detectcycle_test.go           | Go               |         11 |          0 |          3 |         14 |
+| d:\Projects\go\algorithm-go\leetcode\lists\hascycle.go                   | Go               |         17 |         19 |          5 |         41 |
+| d:\Projects\go\algorithm-go\leetcode\lists\hascycle_test.go              | Go               |         11 |          0 |          3 |         14 |
+| d:\Projects\go\algorithm-go\leetcode\lists\ispalindrome.go               | Go               |         27 |         58 |          9 |         94 |
+| d:\Projects\go\algorithm-go\leetcode\lists\ispalindrome_test.go          | Go               |         10 |          0 |          3 |         13 |
+| d:\Projects\go\algorithm-go\leetcode\lists\mergetwolists.go              | Go               |         26 |         18 |          7 |         51 |
+| d:\Projects\go\algorithm-go\leetcode\lists\mergetwolists_test.go         | Go               |         14 |          0 |          5 |         19 |
+| d:\Projects\go\algorithm-go\leetcode\lists\partition.go                  | Go               |         28 |          0 |          6 |         34 |
+| d:\Projects\go\algorithm-go\leetcode\lists\partition_test.go             | Go               |         13 |          0 |          4 |         17 |
+| d:\Projects\go\algorithm-go\leetcode\lists\reorderlist.go                | Go               |         38 |         45 |         13 |         96 |
+| d:\Projects\go\algorithm-go\leetcode\lists\reorderlist_test.go           | Go               |         11 |          0 |          3 |         14 |
+| d:\Projects\go\algorithm-go\leetcode\lists\reverselist.go                | Go               |         35 |         44 |         11 |         90 |
+| d:\Projects\go\algorithm-go\leetcode\lists\reverselist_test.go           | Go               |         24 |          0 |          8 |         32 |
+| d:\Projects\go\algorithm-go\leetcode\lists\sortlist.go                   | Go               |         42 |         44 |         11 |         97 |
+| d:\Projects\go\algorithm-go\leetcode\lists\sortlist_test.go              | Go               |         13 |          0 |          4 |         17 |
+| d:\Projects\go\algorithm-go\leetcode\queues\clonegraph.go                | Go               |         37 |          0 |         11 |         48 |
+| d:\Projects\go\algorithm-go\leetcode\queues\clonegraph_test.go           | Go               |         24 |          0 |          7 |         31 |
+| d:\Projects\go\algorithm-go\leetcode\queues\numislands.go                | Go               |         42 |         38 |         10 |         90 |
+| d:\Projects\go\algorithm-go\leetcode\queues\numislands_test.go           | Go               |         15 |          0 |          5 |         20 |
+| d:\Projects\go\algorithm-go\leetcode\queues\stackqueue.go                | Go               |         52 |          0 |         15 |         67 |
+| d:\Projects\go\algorithm-go\leetcode\queues\stackqueue_test.go           | Go               |         13 |          0 |          3 |         16 |
+| d:\Projects\go\algorithm-go\leetcode\queues\updatematrix.go              | Go               |         41 |          0 |          8 |         49 |
+| d:\Projects\go\algorithm-go\leetcode\queues\updatematrix_test.go         | Go               |         18 |          0 |          5 |         23 |
+| d:\Projects\go\algorithm-go\leetcode\recurs\constant.go                  | Go               |          7 |          1 |          3 |         11 |
+| d:\Projects\go\algorithm-go\leetcode\recurs\fibonacci.go                 | Go               |         14 |          7 |          7 |         28 |
+| d:\Projects\go\algorithm-go\leetcode\recurs\fibonacci_test.go            | Go               |         34 |          1 |          3 |         38 |
+| d:\Projects\go\algorithm-go\leetcode\recurs\generatetrees.go             | Go               |         29 |          8 |          9 |         46 |
+| d:\Projects\go\algorithm-go\leetcode\recurs\generatetrees_test.go        | Go               |         14 |          0 |          3 |         17 |
+| d:\Projects\go\algorithm-go\leetcode\recurs\reversestr.go                | Go               |          8 |          0 |          3 |         11 |
+| d:\Projects\go\algorithm-go\leetcode\recurs\reversestr_test.go           | Go               |         23 |          1 |          3 |         27 |
+| d:\Projects\go\algorithm-go\leetcode\recurs\swappairs.go                 | Go               |         13 |          7 |          4 |         24 |
+| d:\Projects\go\algorithm-go\leetcode\recurs\swappairs_test.go            | Go               |         12 |          0 |          5 |         17 |
+| d:\Projects\go\algorithm-go\leetcode\searchs\binarysearch.go             | Go               |         54 |          3 |         15 |         72 |
+| d:\Projects\go\algorithm-go\leetcode\searchs\binarysearch_test.go        | Go               |         20 |          0 |          8 |         28 |
+| d:\Projects\go\algorithm-go\leetcode\searchs\findmin.go                  | Go               |         39 |          0 |         10 |         49 |
+| d:\Projects\go\algorithm-go\leetcode\searchs\findmin_test.go             | Go               |         15 |          0 |          6 |         21 |
+| d:\Projects\go\algorithm-go\leetcode\searchs\firstbadversion.go          | Go               |         23 |          0 |          9 |         32 |
+| d:\Projects\go\algorithm-go\leetcode\searchs\firstbadversion_test.go     | Go               |         11 |          0 |          5 |         16 |
+| d:\Projects\go\algorithm-go\leetcode\searchs\searchInsert.go             | Go               |         18 |          0 |          6 |         24 |
+| d:\Projects\go\algorithm-go\leetcode\searchs\searchInsert_test.go        | Go               |         10 |          0 |          4 |         14 |
+| d:\Projects\go\algorithm-go\leetcode\searchs\searchmatrix.go             | Go               |         29 |          0 |         11 |         40 |
+| d:\Projects\go\algorithm-go\leetcode\searchs\searchmatrix_test.go        | Go               |         14 |          0 |          4 |         18 |
+| d:\Projects\go\algorithm-go\leetcode\searchs\searchrotated.go            | Go               |         75 |          0 |         17 |         92 |
+| d:\Projects\go\algorithm-go\leetcode\searchs\searchrotated_test.go       | Go               |         15 |          0 |          6 |         21 |
+| d:\Projects\go\algorithm-go\leetcode\slides\checkinclusion.go            | Go               |         25 |          0 |          8 |         33 |
+| d:\Projects\go\algorithm-go\leetcode\slides\checkinclusion_test.go       | Go               |         53 |          1 |          3 |         57 |
+| d:\Projects\go\algorithm-go\leetcode\slides\findanagrams.go              | Go               |         24 |          0 |          7 |         31 |
+| d:\Projects\go\algorithm-go\leetcode\slides\findanagrams_test.go         | Go               |         48 |          1 |          3 |         52 |
+| d:\Projects\go\algorithm-go\leetcode\slides\longestsubs.go               | Go               |         25 |          0 |          8 |         33 |
+| d:\Projects\go\algorithm-go\leetcode\slides\longestsubs_test.go          | Go               |         55 |          1 |          3 |         59 |
+| d:\Projects\go\algorithm-go\leetcode\sorts\heapsort.go                   | Go               |         29 |          0 |          7 |         36 |
+| d:\Projects\go\algorithm-go\leetcode\sorts\heapsort_test.go              | Go               |         10 |          0 |          4 |         14 |
+| d:\Projects\go\algorithm-go\leetcode\sorts\mergesort.go                  | Go               |         35 |          0 |          9 |         44 |
+| d:\Projects\go\algorithm-go\leetcode\sorts\mergesort_test.go             | Go               |         10 |          0 |          4 |         14 |
+| d:\Projects\go\algorithm-go\leetcode\sorts\quicksort.go                  | Go               |         26 |          0 |          5 |         31 |
+| d:\Projects\go\algorithm-go\leetcode\sorts\quicksort_test.go             | Go               |         10 |          0 |          4 |         14 |
+| d:\Projects\go\algorithm-go\leetcode\stacks\decodestring.go              | Go               |         66 |          6 |         17 |         89 |
+| d:\Projects\go\algorithm-go\leetcode\stacks\decodestring_test.go         | Go               |          9 |          0 |          3 |         12 |
+| d:\Projects\go\algorithm-go\leetcode\stacks\evalrpn.go                   | Go               |         26 |          0 |          6 |         32 |
+| d:\Projects\go\algorithm-go\leetcode\stacks\evalrpn_test.go              | Go               |          9 |          0 |          3 |         12 |
+| d:\Projects\go\algorithm-go\leetcode\stacks\largestrectanglearea.go      | Go               |         34 |         34 |         12 |         80 |
+| d:\Projects\go\algorithm-go\leetcode\stacks\largestrectanglearea_test.go | Go               |         10 |          0 |          4 |         14 |
+| d:\Projects\go\algorithm-go\leetcode\stacks\ministack.go                 | Go               |         42 |         45 |         13 |        100 |
+| d:\Projects\go\algorithm-go\leetcode\stacks\ministack_test.go            | Go               |         15 |          0 |          3 |         18 |
+| d:\Projects\go\algorithm-go\leetcode\trees\constant.go                   | Go               |          7 |          0 |          4 |         11 |
+| d:\Projects\go\algorithm-go\leetcode\trees\delnode.go                    | Go               |         25 |          0 |          5 |         30 |
+| d:\Projects\go\algorithm-go\leetcode\trees\delnode_test.go               | Go               |         13 |          0 |          4 |         17 |
+| d:\Projects\go\algorithm-go\leetcode\trees\insertintobst.go              | Go               |         55 |          0 |         13 |         68 |
+| d:\Projects\go\algorithm-go\leetcode\trees\insertintobst_test.go         | Go               |         20 |          0 |          6 |         26 |
+| d:\Projects\go\algorithm-go\leetcode\trees\isbalanced.go                 | Go               |         26 |          0 |          9 |         35 |
+| d:\Projects\go\algorithm-go\leetcode\trees\isbalanced_test.go            | Go               |         37 |          1 |          3 |         41 |
+| d:\Projects\go\algorithm-go\leetcode\trees\isvalidbst.go                 | Go               |         43 |          1 |         14 |         58 |
+| d:\Projects\go\algorithm-go\leetcode\trees\isvalidbst_test.go            | Go               |         83 |          2 |          4 |         89 |
+| d:\Projects\go\algorithm-go\main.go                                      | Go               |         13 |          0 |          3 |         16 |
+| d:\Projects\go\algorithm-go\offer\arrays\findmin.go                      | Go               |         15 |          0 |          5 |         20 |
+| d:\Projects\go\algorithm-go\offer\arrays\findmin_test.go                 | Go               |         27 |          8 |          3 |         38 |
+| d:\Projects\go\algorithm-go\offer\arrays\findrepeatnum.go                | Go               |         11 |          0 |          4 |         15 |
+| d:\Projects\go\algorithm-go\offer\arrays\findrepeatnum_test.go           | Go               |         27 |          1 |          3 |         31 |
+| d:\Projects\go\algorithm-go\offer\lists\constant.go                      | Go               |          5 |          0 |          4 |          9 |
+| d:\Projects\go\algorithm-go\offer\lists\copyrandomlist.go                | Go               |         45 |          0 |         13 |         58 |
+| d:\Projects\go\algorithm-go\offer\lists\copyrandomlist_test.go           | Go               |         32 |          0 |          8 |         40 |
+| d:\Projects\go\algorithm-go\offer\lists\reverselist.go                   | Go               |         31 |          0 |         12 |         43 |
+| d:\Projects\go\algorithm-go\offer\lists\reverselist_test.go              | Go               |         10 |          0 |          4 |         14 |
+| d:\Projects\go\algorithm-go\offer\lists\reverseprint.go                  | Go               |         26 |          0 |          9 |         35 |
+| d:\Projects\go\algorithm-go\offer\lists\reverseprint_test.go             | Go               |         31 |          1 |          3 |         35 |
+| d:\Projects\go\algorithm-go\offer\queues\cqueue.go                       | Go               |         32 |          0 |         11 |         43 |
+| d:\Projects\go\algorithm-go\offer\queues\cqueue_test.go                  | Go               |         15 |          0 |          6 |         21 |
+| d:\Projects\go\algorithm-go\offer\searchs\missingnum.go                  | Go               |         31 |          0 |          8 |         39 |
+| d:\Projects\go\algorithm-go\offer\searchs\missingnum_test.go             | Go               |         27 |          8 |          3 |         38 |
+| d:\Projects\go\algorithm-go\offer\searchs\search.go                      | Go               |         65 |          0 |         17 |         82 |
+| d:\Projects\go\algorithm-go\offer\searchs\search_test.go                 | Go               |         37 |          1 |          3 |         41 |
+| d:\Projects\go\algorithm-go\offer\searchs\searchmat.go                   | Go               |         47 |          0 |         12 |         59 |
+| d:\Projects\go\algorithm-go\offer\searchs\searchmat_test.go              | Go               |         35 |          1 |          3 |         39 |
+| d:\Projects\go\algorithm-go\offer\stacks\minstack.go                     | Go               |         41 |          0 |         14 |         55 |
+| d:\Projects\go\algorithm-go\offer\stacks\minstack_test.go                | Go               |         15 |          0 |          3 |         18 |
+| d:\Projects\go\algorithm-go\offer\strings\finduniqchar.go                | Go               |         25 |          0 |          8 |         33 |
+| d:\Projects\go\algorithm-go\offer\strings\finduniqchar_test.go           | Go               |         27 |          1 |          3 |         31 |
+| d:\Projects\go\algorithm-go\offer\strings\replacespace.go                | Go               |         16 |          1 |          4 |         21 |
+| d:\Projects\go\algorithm-go\offer\strings\replacespace_test.go           | Go               |         27 |          1 |          3 |         31 |
+| d:\Projects\go\algorithm-go\offer\strings\reverseleftwords.go            | Go               |          6 |          6 |          6 |         18 |
+| d:\Projects\go\algorithm-go\offer\strings\reverseleftwords_test.go       | Go               |         29 |          1 |          3 |         33 |
+| d:\Projects\go\algorithm-go\offer\trees\constant.go                      | Go               |          7 |          0 |          4 |         11 |
+| d:\Projects\go\algorithm-go\offer\trees\inverttree.go                    | Go               |         10 |          0 |          5 |         15 |
+| d:\Projects\go\algorithm-go\offer\trees\inverttree_test.go               | Go               |         14 |          0 |          4 |         18 |
+| d:\Projects\go\algorithm-go\offer\trees\issubstructure.go                | Go               |         42 |          0 |         14 |         56 |
+| d:\Projects\go\algorithm-go\offer\trees\issubstructure_test.go           | Go               |         40 |          1 |          3 |         44 |
+| d:\Projects\go\algorithm-go\offer\trees\issymmetric.go                   | Go               |         40 |          0 |         12 |         52 |
+| d:\Projects\go\algorithm-go\offer\trees\issymmetric_test.go              | Go               |         37 |          1 |          3 |         41 |
+| d:\Projects\go\algorithm-go\offer\trees\levelorder.go                    | Go               |         92 |          0 |         25 |        117 |
+| d:\Projects\go\algorithm-go\offer\trees\levelorder_test.go               | Go               |        100 |          3 |          5 |        108 |
+| d:\Projects\go\algorithm-go\structure\binarytree\binarytree.go           | Go               |        118 |          2 |         33 |        153 |
+| d:\Projects\go\algorithm-go\structure\binarytree\binarytree_test.go      | Go               |         25 |          0 |         11 |         36 |
+| d:\Projects\go\algorithm-go\structure\linkedlist\linkedlist.go           | Go               |         55 |          0 |         14 |         69 |
+| d:\Projects\go\algorithm-go\structure\linkedlist\linkedlist_test.go      | Go               |         25 |          0 |          8 |         33 |
+| Total                                                                    |                  |      4,530 |        660 |      1,083 |      6,273 |
++--------------------------------------------------------------------------+------------------+------------+------------+------------+------------+

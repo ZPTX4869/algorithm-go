@@ -29,10 +29,17 @@ func Test_isSymmetric(t *testing.T) {
 			},
 			true,
 		},
+		{
+			"case3",
+			args{
+				root: binarytree.FromSlice([]int{1, 2, 2, null, 3, null, 3}).Root,
+			},
+			false,
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := isSymmetric(tt.args.root); got != tt.want {
+			if got := isSymmetric3(tt.args.root); got != tt.want {
 				t.Errorf("isSymmetric() = %v, want %v", got, tt.want)
 			}
 		})
