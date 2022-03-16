@@ -26,7 +26,7 @@ func Test_maxValue(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := maxValue2(tt.args.grid); got != tt.want {
+			if got := maxValue(tt.args.grid); got != tt.want {
 				t.Errorf("maxValue() = %v, want %v", got, tt.want)
 			}
 		})
