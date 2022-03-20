@@ -2,10 +2,8 @@ package main
 
 import (
 	"fmt"
-	"math"
 )
 
 func main() {
-	fmt.Println(1 << 31)
-	fmt.Println(math.MaxInt32)
+	fmt.Println(200 * 300 * 400 * 500)
 }
