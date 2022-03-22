@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	fmt.Println(200 * 300 * 400 * 500)
+	fmt.Println("125" > "1234")
 }
