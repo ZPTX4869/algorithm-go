@@ -47,5 +47,5 @@ func minNumber(nums []int) string {
 		res += numStr
 	}
 
-	return string(res)
+	return res
 }

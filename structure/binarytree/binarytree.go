@@ -150,3 +150,25 @@ func InorderTraverse(root *TreeNode) []int {
 
 	return ans
 }
+
+func PostorderTraverse(root *TreeNode) []int {
+	ans := []int{}
+	stack := []*TreeNode{}
+
+	for len(stack) != 0 || root != nil {
+		for root != nil {
+			stack = append(stack, root)
+			root = root.Left
+		}
+
+		currr := stack[len(stack)-1]
+		stack = stack[0:len(stack)-1]
+		ans = append(ans, currr.Val)
+
+		if currr.Right != nil {
+			root = currr.Right
+		}
+	}
+
+	return ans
+}
