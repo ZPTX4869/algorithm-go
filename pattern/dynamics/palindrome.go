@@ -61,19 +61,6 @@ func longestPalindrome(s string) string {
 // 	return longest
 // }
 
-func partition(s string) [][]string {
-	var res [][]string
-
-	for i := 0; i < len(s); i++ {
-	}
-
-	return res
-}
-
-func minCut(s string) int {
-	return 0
-}
-
 // func isPalindrome(s string, left, right int) bool {
 // 	for left < right {
 // 		if s[left] != s[right] {

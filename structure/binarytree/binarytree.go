@@ -108,30 +108,30 @@ func LevelTraverse(root *TreeNode) []int {
 }
 
 func PreorderTraverse(root *TreeNode) []int {
-	ans := []int{}
-	stack := []*TreeNode{}
+	res := make([]int, 0)
+	stack := make([]*TreeNode, 0)
 
 	for len(stack) != 0 || root != nil {
 		for root != nil {
-			ans = append(ans, root.Val)
+			res = append(res, root.Val)
 			stack = append(stack, root)
 			root = root.Left
 		}
 
 		currr := stack[len(stack)-1]
-		stack = stack[0:len(stack)-1]
+		stack = stack[:len(stack)-1]
 
 		if currr.Right != nil {
 			root = currr.Right
 		}
 	}
 
-	return ans
+	return res
 }
 
 func InorderTraverse(root *TreeNode) []int {
-	ans := []int{}
-	stack := []*TreeNode{}
+	res := make([]int, 0)
+	stack := make([]*TreeNode, 0)
 
 	for len(stack) != 0 || root != nil {
 		for root != nil {
@@ -140,20 +140,21 @@ func InorderTraverse(root *TreeNode) []int {
 		}
 
 		currr := stack[len(stack)-1]
-		stack = stack[0:len(stack)-1]
-		ans = append(ans, currr.Val)
+		stack = stack[:len(stack)-1]
+		res = append(res, currr.Val)
 
 		if currr.Right != nil {
 			root = currr.Right
 		}
 	}
 
-	return ans
+	return res
 }
 
 func PostorderTraverse(root *TreeNode) []int {
-	ans := []int{}
-	stack := []*TreeNode{}
+	res := make([]int, 0)
+	stack := make([]*TreeNode, 0)
+	var lastVisited *TreeNode
 
 	for len(stack) != 0 || root != nil {
 		for root != nil {
@@ -161,14 +162,16 @@ func PostorderTraverse(root *TreeNode) []int {
 			root = root.Left
 		}
 
-		currr := stack[len(stack)-1]
-		stack = stack[0:len(stack)-1]
-		ans = append(ans, currr.Val)
+		curr := stack[len(stack)-1]
 
-		if currr.Right != nil {
-			root = currr.Right
+		if curr.Right != nil && curr.Right != lastVisited {
+			root = curr.Right
+		} else {
+			stack = stack[:len(stack)-1]
+			lastVisited = curr
+			res = append(res, curr.Val)
 		}
 	}
 
-	return ans
+	return res
 }
