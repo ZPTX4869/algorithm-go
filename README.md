@@ -1,5 +1,7 @@
 # Algorithm Go
 
-算法模板：《algorithm-pattern》 Go语言实现（含各题基本的单元测试）
+- Including basic algorithms and data structures
+  
+- algorithm-pattern: <https://greyireland.gitbook.io/algorithm-pattern/>
 
-原作网址：<https://greyireland.gitbook.io/algorithm-pattern/>
+- 剑指offer: <https://leetcode-cn.com/problem-list/xb9nqhhg/>

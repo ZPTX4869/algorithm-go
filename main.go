@@ -1,11 +1,24 @@
 package main
 
 import (
+	"algorithm-go/util"
+	"bufio"
 	"fmt"
+	"io"
+	"os"
 )
 
 func main() {
-	fmt.Printf("%032b\n", int32(-2))
-	fmt.Printf("%032b\n", ^int32(-2))
-	fmt.Printf("%032b\n", 1<<31)
+	f, err := os.Open("go.mod")
+	defer f.Close()
+	util.CheckOrPanic(err)
+
+	r := bufio.NewReader(f)
+	for {
+		line, err := r.ReadString('\n')
+		if err == io.EOF {
+			break
+		}
+		fmt.Println(line)
+	}
 }
