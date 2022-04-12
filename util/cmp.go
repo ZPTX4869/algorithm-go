@@ -8,3 +8,10 @@ func Max[T constraints.Ordered](x, y T) T {
 	}
 	return y
 }
+
+func Min[T constraints.Ordered](x, y T) T {
+	if x < y {
+		return x
+	}
+	return y
+}

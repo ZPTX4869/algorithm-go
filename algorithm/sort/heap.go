@@ -26,16 +26,16 @@ func HeapSort[T constraints.Ordered](vals []T) {
 // 	}
 // }
 
-func heapifyDown[T constraints.Ordered](vals []T, idx, n int) {
-	for idx*2+1 < n {
-		child := idx*2 + 1
-		if child+1 < n && vals[child+1] > vals[child] {
+func heapifyDown[T constraints.Ordered](vals []T, parent, end int) {
+	for parent*2+1 < end {
+		child := parent*2 + 1
+		if child+1 < end && vals[child+1] > vals[child] {
 			child += 1
 		}
-		if vals[idx] > vals[child] {
+		if vals[parent] > vals[child] {
 			break
 		}
-		vals[idx], vals[child] = vals[child], vals[idx]
-		idx = child
+		vals[parent], vals[child] = vals[child], vals[parent]
+		parent = child
 	}
 }
