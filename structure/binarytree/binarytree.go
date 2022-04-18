@@ -1,7 +1,7 @@
 package binarytree
 
 import (
-	"fmt"
+	"algorithm-go/util"
 	"math"
 )
 
@@ -15,6 +15,11 @@ type TreeNode struct {
 
 type BinaryTree struct {
 	Root *TreeNode
+	size int
+}
+
+func (t BinaryTree) Size() int {
+	return t.size
 }
 
 func FromSlice(vals []int) BinaryTree {
@@ -24,65 +29,46 @@ func FromSlice(vals []int) BinaryTree {
 		}
 	}
 
-	if vals[0] == null {
-		panic("root can't be empty")
-	}
-
 	var skip int
 	root := &TreeNode{Val: vals[0]}
 	queue := []*TreeNode{root}
 
 	i := 1
 	for i < len(vals) {
-		numNodes := len(queue)
+		if vals[i] == null {
+			skip += 1
+			i++
+			continue
+		}
 
-		for j := 0; j < numNodes; j++ {
-			for vals[i] == null {
-				skip += 1
-				i++
-				if i == len(vals) {
-					goto END
-				}
-			}
+		curr := queue[0]
+		newNode := &TreeNode{Val: vals[i]}
 
-			curr := queue[0]
-
-			newNode := &TreeNode{Val: vals[i]}
-			if curr.Left == nil {
-				if skip == 0 {
-					curr.Left = newNode
-					queue = append(queue, curr.Left)
-					i++
-				} else {
-					skip -= 1
-				}
-			}
-
-			for vals[i] == null {
-				skip += 1
-				i++
-				if i == len(vals) {
-					goto END
-				}
-			}
-			newNode = &TreeNode{Val: vals[i]}
+		if curr.Left == nil {
 			if skip == 0 {
-				curr.Right = newNode
-				queue = append(queue, curr.Right)
+				curr.Left = newNode
+				queue = append(queue, curr.Left)
 				i++
+				continue
 			} else {
 				skip -= 1
 			}
-
-			queue = queue[1:]
-			if len(queue) == 0 {
-				panic(fmt.Sprintf("assign a node { val:%d } to an empty node", vals[j]))
-			}
 		}
+
+		if skip == 0 {
+			curr.Right = newNode
+			queue = append(queue, curr.Right)
+			i++
+		} else {
+			skip -= 1
+		}
+
+		queue = queue[1:]
 	}
-END:
+
 	return BinaryTree{
 		Root: root,
+		size: len(util.FilterSlice(vals, func(x int) bool { return x != null })),
 	}
 }
 

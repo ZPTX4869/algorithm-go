@@ -10,6 +10,7 @@ func TestFromSlice(t *testing.T) {
 	tree := FromSlice([]int{1, 2, null, null, 3, null, null})
 	ans := LevelTraverse(tree.Root)
 
+	assert.Equal(t, 3, tree.Size())
 	assert.Equal(t, []int{1, 2, 3}, ans)
 }
 
