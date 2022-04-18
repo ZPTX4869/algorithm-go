@@ -1,6 +1,7 @@
 package binarytree
 
 import (
+	"fmt"
 	"math"
 )
 
@@ -18,90 +19,97 @@ type BinaryTree struct {
 
 func FromSlice(vals []int) BinaryTree {
 	if len(vals) == 0 {
-		panic("Value slice for initialization can not be empty!")
+		return BinaryTree{
+			Root: nil,
+		}
 	}
 
-	root := &TreeNode{
-		Val: vals[0],
+	if vals[0] == null {
+		panic("root can't be empty")
 	}
 
-	var queue []*TreeNode
-	queue = append(queue, root)
+	var skip int
+	root := &TreeNode{Val: vals[0]}
+	queue := []*TreeNode{root}
 
-	for _, val := range vals[1:] {
-		newNode := &TreeNode{Val: val}
-		curr := queue[0]
+	i := 1
+	for i < len(vals) {
+		numNodes := len(queue)
 
-		if curr.Left == nil {
-			curr.Left = newNode
-		} else if curr.Right == nil {
-			curr.Right = newNode
+		for j := 0; j < numNodes; j++ {
+			for vals[i] == null {
+				skip += 1
+				i++
+				if i == len(vals) {
+					goto END
+				}
+			}
+
+			curr := queue[0]
+
+			newNode := &TreeNode{Val: vals[i]}
+			if curr.Left == nil {
+				if skip == 0 {
+					curr.Left = newNode
+					queue = append(queue, curr.Left)
+					i++
+				} else {
+					skip -= 1
+				}
+			}
+
+			for vals[i] == null {
+				skip += 1
+				i++
+				if i == len(vals) {
+					goto END
+				}
+			}
+			newNode = &TreeNode{Val: vals[i]}
+			if skip == 0 {
+				curr.Right = newNode
+				queue = append(queue, curr.Right)
+				i++
+			} else {
+				skip -= 1
+			}
+
 			queue = queue[1:]
-		}
-
-		// We can not append `null` into queue, it's just for holding place.
-		if newNode.Val != null {
-			queue = append(queue, newNode)
+			if len(queue) == 0 {
+				panic(fmt.Sprintf("assign a node { val:%d } to an empty node", vals[j]))
+			}
 		}
 	}
-
-	// Create by level have to  use `null` as placeholder, and `null` node should be delelted before return.
-	delNull(root)
-
+END:
 	return BinaryTree{
 		Root: root,
 	}
 }
 
-func delNull(root *TreeNode) {
-	if root == nil {
-		panic("Root can not be nil!")
-	}
-
-	var queue []*TreeNode
-	queue = append(queue, root)
-
-	for len(queue) > 0 {
-		curr := queue[0]
-
-		if curr.Left != nil {
-			if curr.Left.Val == null {
-				curr.Left = nil
-			} else {
-				queue = append(queue, curr.Left)
-			}
-		}
-		if curr.Right != nil {
-			if curr.Right.Val == null {
-				curr.Right = nil
-			} else {
-				queue = append(queue, curr.Right)
-			}
-		}
-
-		queue = queue[1:]
-	}
-}
-
 func LevelTraverse(root *TreeNode) []int {
 	if root == nil {
-		panic("Root can not be nil!")
+		return []int{}
 	}
 
 	queue := []*TreeNode{root}
 	result := make([]int, 0)
 
 	for len(queue) > 0 {
-		curr := queue[0]
-		queue = queue[1:]
-		result = append(result, curr.Val)
+		len := len(queue)
 
-		if curr.Left != nil {
-			queue = append(queue, curr.Left)
+		for i := 0; i < len; i++ {
+			curr := queue[0]
+			queue = queue[1:]
+			result = append(result, curr.Val)
+
+			if curr.Left != nil {
+				queue = append(queue, curr.Left)
+			}
+			if curr.Right != nil {
+				queue = append(queue, curr.Right)
+			}
 		}
-		if curr.Right != nil {
-			queue = append(queue, curr.Right)
-		}
+
 	}
 
 	return result
