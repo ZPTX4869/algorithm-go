@@ -1,7 +1,5 @@
 package linkedlist
 
-import "fmt"
-
 type ListNode struct {
 	Val  int
 	Next *ListNode
@@ -51,18 +49,12 @@ func (l *LinkedList) Traverse() []int {
 	return nums
 }
 
-func TraversePrint(head *ListNode) {
+func Traverse(head *ListNode) []int {
+	res := make([]int, 0)
 	for head != nil {
-		fmt.Printf("%v ", head.Val)
+		res = append(res, head.Val)
 		head = head.Next
 	}
-}
 
-func ReversePrint(head *ListNode) {
-	if head.Next == nil {
-		fmt.Printf("%v ", head.Val)
-		return
-	}
-	ReversePrint(head.Next)
-	fmt.Printf("%v ", head.Val)
+	return res
 }

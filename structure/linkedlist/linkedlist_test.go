@@ -20,13 +20,3 @@ func TestLinkedList_Traverse(t *testing.T) {
 	list := FromSlice(vals)
 	fmt.Println(list.Traverse())
 }
-
-func TestTraversePrint(t *testing.T) {
-	list := FromSlice(vals)
-	TraversePrint(list.Head)
-}
-
-func TestReversePrint(t *testing.T) {
-	list := FromSlice(vals)
-	ReversePrint(list.Head)
-}

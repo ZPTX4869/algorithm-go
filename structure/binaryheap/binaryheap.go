@@ -2,14 +2,14 @@ package heap
 
 import "golang.org/x/exp/constraints"
 
-type Heap[T any] struct {
+type BinaryHeap[T any] struct {
 	len  uint
 	vals []T
 	less func(T, T) bool
 }
 
-func New[T any](comparator func(T, T) bool) Heap[T] {
-	return Heap[T]{
+func New[T any](comparator func(T, T) bool) BinaryHeap[T] {
+	return BinaryHeap[T]{
 		len: 0,
 		// Leave T[0] unused for calculation simplicity
 		vals: make([]T, 1),
@@ -17,8 +17,8 @@ func New[T any](comparator func(T, T) bool) Heap[T] {
 	}
 }
 
-func NewMin[T constraints.Ordered]() Heap[T] {
-	return Heap[T]{
+func NewMin[T constraints.Ordered]() BinaryHeap[T] {
+	return BinaryHeap[T]{
 		len:  0,
 		vals: make([]T, 1),
 		less: func(v1, v2 T) bool {
@@ -27,8 +27,8 @@ func NewMin[T constraints.Ordered]() Heap[T] {
 	}
 }
 
-func NewMax[T constraints.Ordered]() Heap[T] {
-	return Heap[T]{
+func NewMax[T constraints.Ordered]() BinaryHeap[T] {
+	return BinaryHeap[T]{
 		len:  0,
 		vals: make([]T, 1),
 		less: func(v1, v2 T) bool {
@@ -37,15 +37,15 @@ func NewMax[T constraints.Ordered]() Heap[T] {
 	}
 }
 
-func (h *Heap[T]) Len() uint {
+func (h *BinaryHeap[T]) Len() uint {
 	return h.len
 }
 
-func (h *Heap[T]) Empty() bool {
+func (h *BinaryHeap[T]) Empty() bool {
 	return h.len == 0
 }
 
-func (h *Heap[T]) Push(val T) {
+func (h *BinaryHeap[T]) Push(val T) {
 	h.len += 1
 	h.vals = append(h.vals, val)
 
@@ -53,7 +53,7 @@ func (h *Heap[T]) Push(val T) {
 	h.heapifyUp(h.len)
 }
 
-func (h *Heap[T]) Pop() T {
+func (h *BinaryHeap[T]) Pop() T {
 	if h.len == 0 {
 		panic("the heap is empty")
 	}
@@ -68,14 +68,14 @@ func (h *Heap[T]) Pop() T {
 	return res
 }
 
-func (h *Heap[T]) heapifyUp(idx uint) {
+func (h *BinaryHeap[T]) heapifyUp(idx uint) {
 	for idx > 1 && h.less(h.vals[idx], h.vals[idx/2]) {
 		h.vals[idx/2], h.vals[idx] = h.vals[idx], h.vals[idx/2]
 		idx = idx / 2
 	}
 }
 
-func (h *Heap[T]) heapifyDown(idx uint) {
+func (h *BinaryHeap[T]) heapifyDown(idx uint) {
 	for 2*idx <= h.len {
 		childIdx := 2 * idx
 		if childIdx < h.len && h.less(h.vals[childIdx+1], h.vals[childIdx]) {

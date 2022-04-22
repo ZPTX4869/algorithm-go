@@ -1,4 +1,4 @@
-package backtrack
+package dfs
 
 import (
 	"testing"
