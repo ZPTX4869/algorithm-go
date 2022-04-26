@@ -9,9 +9,9 @@ import (
 )
 
 func main() {
-	f, err := os.Open("go.mod")
-	defer f.Close()
+	f, err := os.Open("./main.go")
 	util.CheckOrPanic(err)
+	defer f.Close()
 
 	r := bufio.NewReader(f)
 	for {
@@ -19,6 +19,6 @@ func main() {
 		if err == io.EOF {
 			break
 		}
-		fmt.Println(line)
+		fmt.Print(line)
 	}
 }

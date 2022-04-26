@@ -12,7 +12,10 @@ type LinkedList struct {
 
 func FromSlice(vals []int) LinkedList {
 	if len(vals) == 0 {
-		panic("Vals can not be empty")
+		return LinkedList{
+			Head: nil,
+			Tail: nil,
+		}
 	}
 
 	head := &ListNode{

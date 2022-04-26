@@ -1,4 +1,4 @@
-package twoptrs
+package search
 
 import (
 	"algorithm-go/util"

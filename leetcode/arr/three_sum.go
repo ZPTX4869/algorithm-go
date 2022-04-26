@@ -1,4 +1,4 @@
-package search
+package arr
 
 // Two pointer
 func threeSum(nums []int) [][]int {
