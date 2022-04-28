@@ -1,24 +1,27 @@
 package main
 
 import (
-	"algorithm-go/util"
-	"bufio"
 	"fmt"
-	"io"
-	"os"
+	"sync"
+	"time"
 )
 
-func main() {
-	f, err := os.Open("./main.go")
-	util.CheckOrPanic(err)
-	defer f.Close()
+var mu sync.Mutex
+var set = make(map[int]bool, 0)
 
-	r := bufio.NewReader(f)
-	for {
-		line, err := r.ReadString('\n')
-		if err == io.EOF {
-			break
-		}
-		fmt.Print(line)
+func printOnce(num int) {
+	mu.Lock()
+	defer mu.Unlock()
+
+	if _, exist := set[num]; !exist {
+		fmt.Println(num)
 	}
+	set[num] = true
+}
+
+func main() {
+	for i := 0; i < 10; i++ {
+		go printOnce(100)
+	}
+	time.Sleep(time.Second)
 }

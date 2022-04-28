@@ -8,12 +8,12 @@ type BinaryHeap[T any] struct {
 	less func(T, T) bool
 }
 
-func New[T any](comparator func(T, T) bool) BinaryHeap[T] {
+func New[T any](compare func(T, T) bool) BinaryHeap[T] {
 	return BinaryHeap[T]{
 		len: 0,
 		// Leave T[0] unused for calculation simplicity
 		vals: make([]T, 1),
-		less: comparator,
+		less: compare,
 	}
 }
 

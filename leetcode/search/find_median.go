@@ -35,10 +35,10 @@ func findKthELem(nums1 []int, nums2 []int, k int) float64 {
 		pivot1, pivot2 := nums1[newIdx1], nums2[newIdx2]
 
 		if pivot1 < pivot2 {
-			k -= (newIdx1-idx1+1)
+			k -= (newIdx1 - idx1 + 1)
 			idx1 = newIdx1 + 1
 		} else {
-			k -= (newIdx2-idx2+1)
+			k -= (newIdx2 - idx2 + 1)
 			idx2 = newIdx2 + 1
 		}
 	}
