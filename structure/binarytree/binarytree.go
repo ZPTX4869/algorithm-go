@@ -5,7 +5,7 @@ import (
 	"math"
 )
 
-const null = math.MaxInt64
+const Null = math.MaxInt64
 
 type TreeNode struct {
 	Val   int
@@ -35,7 +35,7 @@ func FromSlice(vals []int) BinaryTree {
 
 	i := 1
 	for i < len(vals) {
-		if vals[i] == null {
+		if vals[i] == Null {
 			skip += 1
 			i++
 			continue
@@ -68,7 +68,7 @@ func FromSlice(vals []int) BinaryTree {
 
 	return BinaryTree{
 		Root: root,
-		size: len(util.FilterSlice(vals, func(x int) bool { return x != null })),
+		size: len(util.FilterSlice(vals, func(x int) bool { return x != Null })),
 	}
 }
 

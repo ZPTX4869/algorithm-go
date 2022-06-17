@@ -1,4 +1,4 @@
-package insort
+package sort
 
 import (
 	"testing"

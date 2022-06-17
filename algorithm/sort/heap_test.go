@@ -1,4 +1,4 @@
-package insort
+package sort
 
 import (
 	"testing"
@@ -6,12 +6,12 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestBubbleSort(t *testing.T) {
+func TestHeapSort(t *testing.T) {
 	var vals []int
 
 	t.Run("basic", func(t *testing.T) {
 		vals = []int{3, 5, 6, 3, 1, 4}
-		BubbleSort(vals)
+		HeapSort(vals)
 		for i := 0; i < len(vals)-1; i++ {
 			assert.True(t, vals[i] <= vals[i+1])
 		}
@@ -19,7 +19,7 @@ func TestBubbleSort(t *testing.T) {
 
 	t.Run("empty", func(t *testing.T) {
 		vals = []int{}
-		BubbleSort(vals)
+		HeapSort(vals)
 		for i := 0; i < len(vals)-1; i++ {
 			assert.True(t, vals[i] <= vals[i+1])
 		}
@@ -27,7 +27,7 @@ func TestBubbleSort(t *testing.T) {
 
 	t.Run("reversed", func(t *testing.T) {
 		vals = []int{6, 5, 4, 3, 2, 1}
-		BubbleSort(vals)
+		HeapSort(vals)
 		for i := 0; i < len(vals)-1; i++ {
 			assert.True(t, vals[i] <= vals[i+1])
 		}
@@ -35,7 +35,7 @@ func TestBubbleSort(t *testing.T) {
 
 	t.Run("sorted", func(t *testing.T) {
 		vals = []int{1, 2, 3, 4, 5, 6}
-		BubbleSort(vals)
+		HeapSort(vals)
 		for i := 0; i < len(vals)-1; i++ {
 			assert.True(t, vals[i] <= vals[i+1])
 		}
