@@ -51,16 +51,18 @@ func buildTree3(preorder []int, postorder []int) *TreeNode {
 	}
 
 	rootVal := preorder[0]
+	// 建树答案不唯一，因为这里我们直接假设了左子树根节点是存在的，但实际可能为空节点
 	idxLeft := search(postorder, preorder[1])
 
 	root := &TreeNode{Val: rootVal}
-	root.Left = buildTree3(preorder[1:2+idxLeft], postorder[:idxLeft+1])
-	root.Right = buildTree3(preorder[2+idxLeft:], postorder[idxLeft+1:len(postorder)-1])
+	// idxLeft+2是因为除了包含leftRoot节点外，preorder的左子树起点是从1开始的
+	root.Left = buildTree3(preorder[1:idxLeft+2], postorder[:idxLeft+1])
+	root.Right = buildTree3(preorder[idxLeft+2:], postorder[idxLeft+1:len(postorder)-1])
 
 	return root
 }
 
-func search (nums []int, tar int) int {
+func search(nums []int, tar int) int {
 	for i, v := range nums {
 		if v == tar {
 			return i

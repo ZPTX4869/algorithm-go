@@ -1,6 +1,8 @@
 package tree
 
-import "algorithm-go/structure/binarytree"
+import (
+	"algorithm-go/structure/binarytree"
+)
 
 const null = binarytree.Null
 

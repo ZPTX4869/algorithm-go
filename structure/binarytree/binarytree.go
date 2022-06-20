@@ -5,7 +5,7 @@ import (
 	"math"
 )
 
-const Null = math.MaxInt64
+const Null = math.MaxInt32
 
 type TreeNode struct {
 	Val   int

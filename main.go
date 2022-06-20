@@ -2,8 +2,9 @@ package main
 
 import (
 	"fmt"
+	"strconv"
 )
 
 func main() {
-	fmt.Println(3 / 2)
+	fmt.Println(strconv.Atoi("中"))
 }
