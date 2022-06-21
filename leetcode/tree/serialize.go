@@ -12,9 +12,9 @@ func Constructor() Codec {
 	return Codec{}
 }
 
-// Serializes a tree to a single string.
+// BFS
 func (this *Codec) serialize(root *TreeNode) string {
-	ans := make([]string, 0)
+	res := make([]string, 0)
 	queue := make([]*TreeNode, 0)
 	queue = append(queue, root)
 
@@ -23,18 +23,18 @@ func (this *Codec) serialize(root *TreeNode) string {
 		queue = queue[1:]
 
 		if curr != nil {
-			ans = append(ans, strconv.Itoa(curr.Val))
+			res = append(res, strconv.Itoa(curr.Val))
 			queue = append(queue, curr.Left)
 			queue = append(queue, curr.Right)
 		} else {
-			ans = append(ans, "null")
+			res = append(res, "null")
 		}
 	}
 
-	return strings.Join(ans, ",")
+	return strings.Join(res, ",")
 }
 
-// Deserializes your encoded data to tree.
+// BFS
 func (this *Codec) deserialize(data string) *TreeNode {
 	if data == "null" {
 		return nil
@@ -66,6 +66,7 @@ func (this *Codec) deserialize(data string) *TreeNode {
 	return root
 }
 
+// DFS
 func (this *Codec) serialize2(root *TreeNode) string {
 	if root == nil {
 		return "null"
@@ -74,6 +75,7 @@ func (this *Codec) serialize2(root *TreeNode) string {
 	return strconv.Itoa(root.Val) + "," + this.serialize2(root.Left) + "," + this.serialize2(root.Right)
 }
 
+// DFS
 func (this *Codec) deserialize2(data string) *TreeNode {
 	var build func(pStrs *[]string) *TreeNode
 	build = func(pStrs *[]string) *TreeNode {

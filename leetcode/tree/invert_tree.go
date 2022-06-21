@@ -14,17 +14,17 @@ func invertTree(root *TreeNode) *TreeNode {
 }
 
 func invertTree2(root *TreeNode) *TreeNode {
-	traverse(root)
+	invert(root)
 	return root
 }
 
-func traverse(root *TreeNode) {
+func invert(root *TreeNode) {
 	if root == nil {
 		return
 	}
 
 	root.Left, root.Right = root.Right, root.Left
 
-	traverse(root.Left)
-	traverse(root.Right)
+	invert(root.Left)
+	invert(root.Right)
 }
