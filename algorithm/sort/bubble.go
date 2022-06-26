@@ -11,7 +11,7 @@ func BubbleSort[T constraints.Ordered](vals []T) {
 				isSwap = true
 			}
 		}
-		
+
 		// If each next is larger than prev(already sorted), we can terminate loop.
 		if isSwap == false {
 			break

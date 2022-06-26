@@ -1,10 +1,11 @@
 package main
 
-import (
-	"fmt"
-	"strconv"
-)
+import "fmt"
 
 func main() {
-	fmt.Println(strconv.Atoi("中"))
+	a := []int{1, 2, 3, 4}
+	fmt.Println(a)
+
+	copy(a[1:], []int{1, 2, 3})
+	fmt.Println(a)
 }
