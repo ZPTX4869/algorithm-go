@@ -1,5 +1,24 @@
 package tree
 
+func bstToGst(root *TreeNode) *TreeNode {
+	sum := 0
+
+	var traverse func(root *TreeNode)
+	traverse = func(root *TreeNode) {
+		if root == nil {
+			return
+		}
+
+		traverse(root.Right)
+		root.Val = root.Val + sum
+		sum = root.Val
+		traverse(root.Left)
+	}
+	traverse(root)
+
+	return root
+}
+
 func convertBST(root *TreeNode) *TreeNode {
 	nums := make([]int, 0)
 
@@ -33,25 +52,6 @@ func convertBST(root *TreeNode) *TreeNode {
 		update(node.Right)
 	}
 	update(root)
-
-	return root
-}
-
-func bstToGst(root *TreeNode) *TreeNode {
-	sum := 0
-
-	var traverse func(root *TreeNode)
-	traverse = func(root *TreeNode) {
-		if root == nil {
-			return
-		}
-
-		traverse(root.Right)
-		root.Val = root.Val + sum
-		sum = root.Val
-		traverse(root.Left)
-	}
-	traverse(root)
 
 	return root
 }
