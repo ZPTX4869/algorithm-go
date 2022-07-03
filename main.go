@@ -1,11 +1,20 @@
 package main
 
-import "fmt"
+import (
+	"bufio"
+	"fmt"
+	"log"
+	"os"
+)
 
 func main() {
-	a := []int{1, 2, 3, 4}
-	fmt.Println(a)
+	file, err := os.Open("./go.mod")
+	if err != nil {
+		log.Fatal(err)
+	}
 
-	copy(a[1:], []int{1, 2, 3})
-	fmt.Println(a)
+	s := bufio.NewScanner(file)
+	for s.Scan() {
+		fmt.Println(s.Text())
+	}
 }

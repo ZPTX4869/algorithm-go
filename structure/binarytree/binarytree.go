@@ -169,3 +169,34 @@ func PostorderTraverse(root *TreeNode) []int {
 
 	return res
 }
+
+func LevelSearch(root *TreeNode, tar int) *TreeNode {
+	if root == nil {
+		return nil
+	}
+
+	queue := []*TreeNode{root}
+	
+	for len(queue) > 0 {
+		len := len(queue)
+
+		for i := 0; i < len; i++ {
+			curr := queue[0]
+			queue = queue[1:]
+			
+			if curr.Val == tar {
+				return curr
+			}
+
+			if curr.Left != nil {
+				queue = append(queue, curr.Left)
+			}
+			if curr.Right != nil {
+				queue = append(queue, curr.Right)
+			}
+		}
+
+	}
+
+	return nil
+}
