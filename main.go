@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"reflect"
 )
 
 func main() {
@@ -17,4 +18,6 @@ func main() {
 	for s.Scan() {
 		fmt.Println(s.Text())
 	}
+
+	fmt.Println(reflect.TypeOf('b' - 'a'))
 }

@@ -20,13 +20,13 @@ func canFinish(numCourses int, prerequisites [][]int) bool {
 	}
 
 	for i := 0; i < numCourses; i++ {
-		traverse(graph, i)
+		canFinish_dfs(graph, i)
 	}
 
 	return !hasCycle
 }
 
-func traverse(graph [][]int, s int) {
+func canFinish_dfs(graph [][]int, s int) {
 	if onPath[s] == true {
 		hasCycle = true
 		return
@@ -39,7 +39,7 @@ func traverse(graph [][]int, s int) {
 	onPath[s] = true
 	visited[s] = true
 	for i := 0; i < len(graph[s]); i++ {
-		traverse(graph, graph[s][i])
+		canFinish_dfs(graph, graph[s][i])
 	}
 	onPath[s] = false
 }
