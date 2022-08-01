@@ -1,7 +1,7 @@
 package search
 
 import (
-	"algorithm-go/util"
+	"algorithm-go/util/maths"
 )
 
 // Bingary search
@@ -26,12 +26,12 @@ func findKthELem(nums1 []int, nums2 []int, k int) float64 {
 			return float64(nums1[idx1+k-1])
 		}
 		if k == 1 {
-			return float64(util.Min(nums1[idx1], nums2[idx2]))
+			return float64(maths.Min(nums1[idx1], nums2[idx2]))
 		}
 
 		half := k / 2
-		newIdx1 := util.Min(idx1+half-1, len(nums1)-1)
-		newIdx2 := util.Min(idx2+half-1, len(nums2)-1)
+		newIdx1 := maths.Min(idx1+half-1, len(nums1)-1)
+		newIdx2 := maths.Min(idx2+half-1, len(nums2)-1)
 		pivot1, pivot2 := nums1[newIdx1], nums2[newIdx2]
 
 		if pivot1 < pivot2 {

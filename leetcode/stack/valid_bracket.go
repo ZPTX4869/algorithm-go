@@ -1,4 +1,4 @@
-package stk
+package stack
 
 func isValid(s string) bool {
 	n := len(s)

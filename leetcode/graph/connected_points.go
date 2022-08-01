@@ -2,7 +2,7 @@ package graph
 
 import (
 	"algorithm-go/structure/unionfind"
-	"algorithm-go/util"
+	"algorithm-go/util/maths"
 	"sort"
 )
 
@@ -38,5 +38,5 @@ func minCostConnectPoints(points [][]int) int {
 }
 
 func manhattan(p1, p2 []int) int {
-	return util.Abs(p1[0]-p2[0]) + util.Abs(p1[1]-p2[1])
+	return maths.Abs(p1[0]-p2[0]) + maths.Abs(p1[1]-p2[1])
 }

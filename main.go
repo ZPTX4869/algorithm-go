@@ -3,21 +3,18 @@ package main
 import (
 	"bufio"
 	"fmt"
-	"log"
 	"os"
-	"reflect"
 )
 
 func main() {
-	file, err := os.Open("./go.mod")
-	if err != nil {
-		log.Fatal(err)
-	}
+	var c chan int
+	c = make(chan int)
+	go func() {
+		fmt.Println(<-c)
+	}()
+	c <- 1
 
-	s := bufio.NewScanner(file)
-	for s.Scan() {
-		fmt.Println(s.Text())
-	}
-
-	fmt.Println(reflect.TypeOf('b' - 'a'))
+	sc := bufio.NewScanner(os.Stdin)
+	sc.Scan()
+	sc.Text()
 }

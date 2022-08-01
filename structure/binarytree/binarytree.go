@@ -1,7 +1,7 @@
 package binarytree
 
 import (
-	"algorithm-go/util"
+	"algorithm-go/util/slices"
 	"math"
 )
 
@@ -68,7 +68,7 @@ func FromSlice(vals []int) BinaryTree {
 
 	return BinaryTree{
 		Root: root,
-		size: len(util.FilterSlice(vals, func(x int) bool { return x != Null })),
+		size: len(slices.FilterSlice(vals, func(x int) bool { return x != Null })),
 	}
 }
 
@@ -176,14 +176,14 @@ func LevelSearch(root *TreeNode, tar int) *TreeNode {
 	}
 
 	queue := []*TreeNode{root}
-	
+
 	for len(queue) > 0 {
 		len := len(queue)
 
 		for i := 0; i < len; i++ {
 			curr := queue[0]
 			queue = queue[1:]
-			
+
 			if curr.Val == tar {
 				return curr
 			}

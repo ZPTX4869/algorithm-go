@@ -1,4 +1,4 @@
-package lru
+package cache
 
 import (
 	"testing"
@@ -8,7 +8,7 @@ import (
 
 func TestLRUCache(t *testing.T) {
 	t.Run("case1", func(t *testing.T) {
-		cache := NewCache(1)
+		cache := NewLRUCache(1)
 		cache.Put(2, 1)
 		assert.Equal(t, 1, cache.Get(2))
 		cache.Put(3, 1)
@@ -16,7 +16,7 @@ func TestLRUCache(t *testing.T) {
 	})
 
 	t.Run("case2", func(t *testing.T) {
-		cache := NewCache(2)
+		cache := NewLRUCache(2)
 		assert.Equal(t, -1, cache.Get(2))
 		cache.Put(2, 6)
 		assert.Equal(t, -1, cache.Get(1))

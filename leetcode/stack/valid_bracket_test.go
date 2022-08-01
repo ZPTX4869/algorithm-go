@@ -1,4 +1,4 @@
-package stk
+package stack
 
 import (
 	"testing"
