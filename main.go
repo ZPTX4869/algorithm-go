@@ -1,9 +1,7 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
-	"os"
 )
 
 func main() {
@@ -13,8 +11,4 @@ func main() {
 		fmt.Println(<-c)
 	}()
 	c <- 1
-
-	sc := bufio.NewScanner(os.Stdin)
-	sc.Scan()
-	sc.Text()
 }

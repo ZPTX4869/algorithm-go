@@ -23,6 +23,7 @@ func merge[T constraints.Ordered](vals []T, left, mid, right int) {
 	lp, rp := left, mid+1
 
 	for lp <= mid && rp <= right {
+		// 相等时，优先选择前半段的元素以保证排序稳定
 		if vals[lp] <= vals[rp] {
 			temp = append(temp, vals[lp])
 			lp++
