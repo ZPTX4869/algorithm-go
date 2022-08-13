@@ -1,20 +1,20 @@
 package cache
 
-type LRUCache struct {
+type LRU struct {
 	nodeMap  map[int]*Node
 	nodeList *List
 	cap      int
 }
 
-func NewLRUCache(capacity int) LRUCache {
-	return LRUCache{
+func NewLRU(capacity int) LRU {
+	return LRU{
 		nodeMap:  make(map[int]*Node, capacity),
 		nodeList: NewList(),
 		cap:      capacity,
 	}
 }
 
-func (c *LRUCache) Get(key int) int {
+func (c *LRU) Get(key int) int {
 	if _, ok := c.nodeMap[key]; !ok {
 		return -1
 	}
@@ -25,7 +25,7 @@ func (c *LRUCache) Get(key int) int {
 	return c.nodeMap[key].Val
 }
 
-func (c *LRUCache) Put(key int, value int) {
+func (c *LRU) Put(key int, value int) {
 	if curr, ok := c.nodeMap[key]; ok {
 		delete(c.nodeMap, key)
 		c.nodeList.Remove(curr)

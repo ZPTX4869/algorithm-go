@@ -5,10 +5,5 @@ import (
 )
 
 func main() {
-	var c chan int
-	c = make(chan int)
-	go func() {
-		fmt.Println(<-c)
-	}()
-	c <- 1
+	fmt.Println("Hello World!")
 }

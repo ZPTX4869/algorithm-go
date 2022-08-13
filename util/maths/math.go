@@ -20,16 +20,26 @@ func Abs[T constraints.Signed](x T) T {
     return x
 }
 
-func Max[T constraints.Ordered](x, y T) T {
-	if x > y {
-		return x
+func Max[T constraints.Ordered](vals ...T) T {
+	res := vals[0]
+
+	for _, v := range vals[1:] {
+		if v > res {
+			res = v
+		}
 	}
-	return y
+	
+	return res
 }
 
-func Min[T constraints.Ordered](x, y T) T {
-	if x < y {
-		return x
+func Min[T constraints.Ordered](vals ...T) T {
+	res := vals[0]
+
+	for _, v := range vals[1:] {
+		if v < res {
+			res = v
+		}
 	}
-	return y
+	
+	return res
 }
