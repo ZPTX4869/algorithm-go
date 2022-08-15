@@ -40,30 +40,3 @@ func letterCombinations(digits string) []string {
 
 	return res
 }
-
-// func letterCombinations(digits string) []string {
-// 	res := make([]string, 0)
-
-// 	for i := 0; i < len(digits); i++ {
-// 		letters := make([]string, 0)
-
-// 		if strs, ok := buttonMap[digits[i]]; ok {
-// 			letters = append(letters, strs...)
-// 		}
-
-// 		if len(res) == 0 {
-// 			res = append(res, letters...)
-// 			continue
-// 		}
-
-// 		n := len(res)
-// 		for i := 0; i < n; i++ {
-// 			for j := 0; j < len(letters); j++ {
-// 				res = append(res, res[i]+letters[j])
-// 			}
-// 		}
-// 		res = res[n:]
-// 	}
-
-// 	return res
-// }
