@@ -5,7 +5,7 @@ import (
 )
 
 func QuickSort[T constraints.Ordered](vals []T) {
-	var sort func(start, end int)
+	var sort func(left, right int)
 	sort = func(start, end int) {
 		if start >= end {
 			return

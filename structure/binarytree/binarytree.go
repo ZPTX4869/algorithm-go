@@ -68,7 +68,7 @@ func FromSlice(vals []int) BinaryTree {
 
 	return BinaryTree{
 		Root: root,
-		size: len(slices.FilterSlice(vals, func(x int) bool { return x != Null })),
+		size: len(slices.Filter(vals, func(x int) bool { return x != Null })),
 	}
 }
 

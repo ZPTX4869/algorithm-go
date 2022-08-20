@@ -1,62 +1,70 @@
 package stack
 
 func calculate(s string) int {
-	return eval(s, 0, len(s)-1)
-}
+	var helper func(bytes *[]byte) int
+	helper = func(bytes *[]byte) int {
+		stk := make([]int, 0)
+		num := 0
+		opt := byte('+')
 
-func calculate_(s string) int {
-	return eval(s, 0, len(s)-1)
-}
+		for len(*bytes) > 0 {
+			c := (*bytes)[0]
+			*bytes = (*bytes)[1:]
 
-func eval(s string, left, right int) int {
-	num := 0
-	opt := byte('+')
-	stk := make([]int, 0)
-
-	for i := left; i <= right; i++ {
-		if s[i] >= '0' && s[i] <= '9' {
-			num = 10*num + int(s[i]-'0')
-		}
-
-		if s[i] == '(' {
-			layer := 0
-			j := i
-			for j <= right {
-				if s[j] == '(' {
-					layer += 1
-				}
-				if s[j] == ')' {
-					layer -= 1
-				}
-				if layer == 0 {
-					break
-				}
-				j++
+			if c == '(' {
+				num = helper(bytes)
 			}
-			num = eval(s, i+1, j-1) // 递归计算字表达式
-			i = j
+
+			if isDigit(c) {
+				num = 10*num + int(c-'0')
+			}
+
+			if (!isDigit(c) && c != ' ') || len(*bytes) == 0 {
+				switch opt {
+				case '+':
+					stk = append(stk, num)
+				case '-':
+					stk = append(stk, -num)
+				case '*':
+					pre := stk[len(stk)-1]
+					stk = stk[:len(stk)-1]
+					stk = append(stk, pre*num)
+				case '/':
+					pre := stk[len(stk)-1]
+					stk = stk[:len(stk)-1]
+					stk = append(stk, pre/num)
+				}
+
+				opt = c
+				num = 0
+			}
+
+			if c == ')' {
+				break
+			}
 		}
 
-		if s[i] < '0' || s[i] > '9' || i == right {
-			switch opt {
-			case '+':
-				stk = append(stk, num)
-			case '-':
-				stk = append(stk, -num)
-			case '*':
-				stk[len(stk)-1] *= num
-			case '/':
-				stk[len(stk)-1] /= num
-			}
-			opt = s[i]
-			num = 0
+		res := 0
+		for len(stk) > 0 {
+			res += stk[len(stk)-1]
+			stk = stk[:len(stk)-1]
 		}
+
+		return res
 	}
 
-	res := 0
-	for _, v := range stk {
-		res += v
+	bytes := make([]byte, 0)
+	for i := 0; i < len(s); i++ {
+		bytes = append(bytes, s[i])
 	}
 
-	return res
+	return helper(&bytes)
+}
+
+func isDigit(c byte) bool {
+	if c >= '0' && c <= '9' {
+		return true
+	}
+
+	return false
 }

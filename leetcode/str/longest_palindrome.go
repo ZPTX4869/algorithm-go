@@ -5,6 +5,7 @@ func longestPalindrome(s string) string {
 	res := string(s[0])
 
 	for i := 1; i < len(s); i++ {
+		// 双起点解决奇偶问题
 		single := spread(s, i, i)
 		double := spread(s, i-1, i)
 

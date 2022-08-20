@@ -1,6 +1,20 @@
 package slices
 
-import "errors"
+import (
+	"errors"
+
+	"golang.org/x/exp/constraints"
+)
+
+func Sum[T constraints.Signed](vals []T) T {
+	var sum T
+
+	for i := 0; i < len(vals); i++ {
+		sum += vals[i]
+	}
+
+	return sum
+}
 
 func Fill[T any](elems []T, val T) error {
 	if elems == nil {
@@ -14,11 +28,11 @@ func Fill[T any](elems []T, val T) error {
 	return nil
 }
 
-func FilterSlice[T comparable](elems []T, predicate func(x T) bool) []T {
+func Filter[T comparable](elems []T, predicate func(x T) bool) []T {
 	res := make([]T, 0)
 
 	for _, val := range elems {
-		if predicate(val) == true {
+		if predicate(val) {
 			res = append(res, val)
 		}
 	}
