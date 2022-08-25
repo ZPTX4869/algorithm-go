@@ -12,29 +12,29 @@ func Test_calculate(t *testing.T) {
 		want int
 	}{
 		// TODO: Add test cases.
-		// {
-		// 	name: "case1",
-		// 	args: args{
-		// 		s: "1 + 1",
-		// 	},
-		// 	want: 2,
-		// },
-		// {
-		// 	name: "case2",
-		// 	args: args{
-		// 		s: " 2-1 + 2 ",
-		// 	},
-		// 	want: 3,
-		// },
-		// {
-		// 	name: "case3",
-		// 	args: args{
-		// 		s: "(1+2)*3",
-		// 	},
-		// 	want: 9,
-		// },
 		{
-			name: "case",
+			name: "case1",
+			args: args{
+				s: "1 + 1",
+			},
+			want: 2,
+		},
+		{
+			name: "case2",
+			args: args{
+				s: " 2-1 + 2 ",
+			},
+			want: 3,
+		},
+		{
+			name: "case3",
+			args: args{
+				s: "(1+2)*3",
+			},
+			want: 9,
+		},
+		{
+			name: "case4",
 			args: args{
 				s: "2147483647",
 			},

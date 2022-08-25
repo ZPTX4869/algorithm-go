@@ -1,5 +1,7 @@
 package stack
 
+import "unicode"
+
 func calculate(s string) int {
 	var helper func(bytes *[]byte) int
 	helper = func(bytes *[]byte) int {
@@ -15,17 +17,17 @@ func calculate(s string) int {
 				num = helper(bytes)
 			}
 
-			if isDigit(c) {
+			if unicode.IsDigit(rune(c)) {
 				num = 10*num + int(c-'0')
 			}
 
-			if (!isDigit(c) && c != ' ') || len(*bytes) == 0 {
+			if (!unicode.IsDigit(rune(c)) && c != ' ') || len(*bytes) == 0 {
 				switch opt {
 				case '+':
 					stk = append(stk, num)
 				case '-':
 					stk = append(stk, -num)
-				case '*':
+				case '*': 
 					pre := stk[len(stk)-1]
 					stk = stk[:len(stk)-1]
 					stk = append(stk, pre*num)
@@ -35,8 +37,8 @@ func calculate(s string) int {
 					stk = append(stk, pre/num)
 				}
 
-				opt = c
 				num = 0
+				opt = c
 			}
 
 			if c == ')' {
@@ -59,12 +61,4 @@ func calculate(s string) int {
 	}
 
 	return helper(&bytes)
-}
-
-func isDigit(c byte) bool {
-	if c >= '0' && c <= '9' {
-		return true
-	}
-
-	return false
 }

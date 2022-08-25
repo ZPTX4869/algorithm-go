@@ -3,8 +3,8 @@ module algorithm-go
 go 1.18
 
 require (
-	github.com/stretchr/testify v1.7.5
-	golang.org/x/exp v0.0.0-20220613132600-b0d781184e0d
+	github.com/stretchr/testify v1.8.0
+	golang.org/x/exp v0.0.0-20220823124025-807a23277127
 )
 
 require (
