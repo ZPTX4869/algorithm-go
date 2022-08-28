@@ -1,4 +1,4 @@
-package search
+package bin
 
 func searchRange(nums []int, target int) []int {
 	return []int{searchLeft(nums, target), searchRight(nums, target)}

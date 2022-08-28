@@ -1,4 +1,4 @@
-package search
+package bin
 
 import (
 	"algorithm-go/util/maths"

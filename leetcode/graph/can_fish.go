@@ -27,12 +27,12 @@ func canFinish(numCourses int, prerequisites [][]int) bool {
 }
 
 func canFinish_dfs(graph [][]int, s int) {
-	if onPath[s] == true {
+	if onPath[s] {
 		hasCycle = true
 		return
 	}
 
-	if visited[s] == true {
+	if visited[s] {
 		return
 	}
 

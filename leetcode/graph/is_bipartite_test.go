@@ -48,7 +48,7 @@ func Test_isBipartite(t *testing.T) {
 	}
 }
 
-func Test_isBipartite_(t *testing.T) {
+func Test_isBipartite2(t *testing.T) {
 	type args struct {
 		graph [][]int
 	}
@@ -85,7 +85,7 @@ func Test_isBipartite_(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := isBipartite_(tt.args.graph); got != tt.want {
+			if got := isBipartite2(tt.args.graph); got != tt.want {
 				t.Errorf("isBipartite_() = %v, want %v", got, tt.want)
 			}
 		})

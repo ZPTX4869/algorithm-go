@@ -9,13 +9,13 @@ func isBipartite(graph [][]int) bool {
 	// DFS
 	var dfs func(root int)
 	dfs = func(root int) {
-		if res == false {
+		if !res {
 			return
 		}
 
 		visited[root] = true
 		for _, neighbor := range graph[root] {
-			if visited[neighbor] == false {
+			if !visited[neighbor] {
 				color[neighbor] = !color[root]
 				dfs(neighbor)
 			} else {
@@ -27,7 +27,7 @@ func isBipartite(graph [][]int) bool {
 	}
 
 	for i := 0; i < len(graph); i++ {
-		if visited[i] == false {
+		if !visited[i] {
 			dfs(i)
 		}
 	}
@@ -35,14 +35,13 @@ func isBipartite(graph [][]int) bool {
 	return res
 }
 
-func isBipartite_(graph [][]int) bool {
+func isBipartite2(graph [][]int) bool {
 	res := true
 	color := make([]bool, len(graph))
 	visited := make([]bool, len(graph))
 
 	// BFS
-	var bfs func(root int)
-	bfs = func(root int) {
+	bfs := func(root int) {
 		queue := []int{root}
 		visited[root] = true
 
@@ -50,7 +49,7 @@ func isBipartite_(graph [][]int) bool {
 			cur := queue[0]
 
 			for _, neighbor := range graph[cur] {
-				if visited[neighbor] == false {
+				if !visited[neighbor] {
 					color[neighbor] = !color[cur]
 					visited[neighbor] = true
 					queue = append(queue, neighbor)
@@ -67,7 +66,7 @@ func isBipartite_(graph [][]int) bool {
 	}
 
 	for i := 0; i < len(graph); i++ {
-		if visited[i] == false {
+		if !visited[i] {
 			bfs(i)
 		}
 	}
