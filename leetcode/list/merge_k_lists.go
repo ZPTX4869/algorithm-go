@@ -18,12 +18,12 @@ func (h MinHeap) Swap(i, j int) {
 	h[i], h[j] = h[j], h[i]
 }
 
-func (h *MinHeap) Push(n interface{}) {
-	if n.(*ListNode) == nil {
+func (h *MinHeap) Push(node interface{}) {
+	if node.(*ListNode) == nil {
 		return
 	}
 
-	*h = append(*h, n.(*ListNode))
+	*h = append(*h, node.(*ListNode))
 }
 
 func (h *MinHeap) Pop() interface{} {

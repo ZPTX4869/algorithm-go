@@ -1,15 +1,15 @@
 package arr
 
-type difference []int
+type diff []int
 
-func (d difference) increment(i, j int, val int) {
+func (d diff) increment(i, j int, val int) {
 	d[i-1] += val
 	if j < len(d) {
 		d[j] -= val
 	}
 }
 
-func (d difference) restore() []int {
+func (d diff) restore() []int {
 	res := make([]int, len(d))
 	res[0] = d[0]
 
@@ -21,8 +21,7 @@ func (d difference) restore() []int {
 }
 
 func corpFlightBookings(bookings [][]int, n int) []int {
-	var d difference
-	d = make([]int, n)
+	var d diff = make([]int, n)
 
 	for i := 0; i < len(bookings); i++ {
 		d.increment(bookings[i][0], bookings[i][1], bookings[i][2])

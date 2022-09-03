@@ -1,6 +1,8 @@
 package sort
 
 import (
+	"math/rand"
+
 	"golang.org/x/exp/constraints"
 )
 
@@ -28,5 +30,9 @@ func QuickSort[T constraints.Ordered](vals []T) {
 		sort(left+1, end)
 	}
 
+	rand.Shuffle(len(vals), func(i, j int) {
+		vals[i], vals[j] = vals[j], vals[i]
+	})
+	
 	sort(0, len(vals)-1)
 }

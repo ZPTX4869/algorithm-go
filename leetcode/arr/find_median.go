@@ -1,5 +1,8 @@
 package arr
 
+import "algorithm-go/util/maths"
+
+// 寻找两个正序数组中的中位数：https://leetcode.cn/problems/median-of-two-sorted-arrays/
 func findMedianSortedArrays(nums1 []int, nums2 []int) float64 {
 	getKth := func(k int) float64 {
 		idx1, idx2 := 0, 0
@@ -48,11 +51,11 @@ func findMedianSortedArrays_(nums1 []int, nums2 []int) float64 {
 		}
 
 		if k == 1 {
-			return float64(min(nums1[s1], nums2[s2]))
+			return float64(maths.Min(nums1[s1], nums2[s2]))
 		}
 
-		i := s1 + min(n1, k/2) - 1
-		j := s2 + min(n2, k/2) - 1
+		i := s1 + maths.Min(n1, k/2) - 1
+		j := s2 + maths.Min(n2, k/2) - 1
 
 		if nums1[i] < nums2[j] {
 			return getKth(nums1, i+1, nums2, s2, k-(i-s1+1))
