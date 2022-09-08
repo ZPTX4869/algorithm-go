@@ -1,21 +1,21 @@
 package list
 
-import llist "container/list"
+import "container/list"
 
 type info struct {
 	key, val int
 }
 
 type LRUCache struct {
-	nodeMap  map[int]*llist.Element
-	nodeList *llist.List
+	nodeMap  map[int]*list.Element
+	nodeList *list.List
 	capacity int
 }
 
 func Constructor(capacity int) LRUCache {
 	return LRUCache{
-		nodeMap:  make(map[int]*llist.Element, 0),
-		nodeList: llist.New(),
+		nodeMap:  make(map[int]*list.Element, 0),
+		nodeList: list.New(),
 		capacity: capacity,
 	}
 }

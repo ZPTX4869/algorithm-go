@@ -15,6 +15,7 @@ func QuickSort[T constraints.Ordered](vals []T) {
 
 		pivot := vals[start]
 		left, right := start, end
+
 		for left < right {
 			for left < right && vals[right] >= pivot {
 				right--
@@ -24,8 +25,8 @@ func QuickSort[T constraints.Ordered](vals []T) {
 			}
 			vals[left], vals[right] = vals[right], vals[left]
 		}
-		vals[start], vals[left] = vals[left], vals[start]
 
+		vals[start], vals[left] = vals[left], vals[start]
 		sort(start, left-1)
 		sort(left+1, end)
 	}

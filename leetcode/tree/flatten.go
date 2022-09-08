@@ -7,18 +7,16 @@ func flatten(root *TreeNode) {
 
 	stack := make([]*TreeNode, 0)
 	nodes := make([]*TreeNode, 0)
-	curr := root
+	cur := root
 
-	for len(stack) > 0 || curr != nil {
-		for curr != nil {
-			nodes = append(nodes, curr)
-			stack = append(stack, curr)
-			curr = curr.Left
+	for len(stack) > 0 || cur != nil {
+		for cur != nil {
+			nodes = append(nodes, cur)
+			stack = append(stack, cur)
+			cur = cur.Left
 		}
 
-		curr := stack[len(stack)-1]
 		stack = stack[:len(stack)-1]
-		curr = curr.Right
 	}
 
 	prev := nodes[0]

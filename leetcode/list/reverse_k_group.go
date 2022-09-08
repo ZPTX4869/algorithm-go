@@ -1,36 +1,34 @@
 package list
 
+// K个一组反转链表：https://leetcode.cn/problems/reverse-nodes-in-k-group/
 func reverseKGroup(head *ListNode, k int) *ListNode {
-	if head == nil {
-		return nil
+	left, right := head, head
+
+	for i := 0; i < k; i++ {
+		if right == nil {
+			return left
+		}
+		right = right.Next
 	}
 
-	lnode, rnode := head, head
-	for i := 0; i < k; i++ {
-		if rnode == nil {
-			return lnode
-		}
-		rnode = rnode.Next
-	}
-	
-	newHead := reversePartial(lnode, rnode)
-	lnode.Next = reverseKGroup(rnode, k)
+	newHead := reversePartial(left, right)
+	left.Next = reverseKGroup(right, k)
 
 	return newHead
 }
 
+// 注意，这里的是一个左闭右开区间：[left, right)
 func reversePartial(left, right *ListNode) *ListNode {
-	var prev, curr *ListNode
+	var pre *ListNode
+	cur := left
 
-	curr = left
-	for curr != right {
-		next := curr.Next
-		curr.Next = prev
-		// Update ptrs
-		prev = curr
-		curr = next
+	// right是需要反转的最后一个节点的后继
+	for cur != right {
+		nxt := cur.Next
+		cur.Next = pre
+		pre = cur
+		cur = nxt
 	}
 
-	return prev
+	return pre
 }
-
