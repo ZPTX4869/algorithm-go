@@ -60,9 +60,9 @@ func findCheapestPrice(n int, flights [][]int, src int, dst int, k int) int {
 }
 
 func findCheapestPrice2(n int, flights [][]int, src int, dst int, k int) int {
-	const inf = 10000*101 + 1
 	// At most k stops means we can move at most k+1 steps.
 	step := k + 1
+	const inf = 10000*101 + 1
 
 	dp := make([][]int, step+1)
 	for i := range dp {

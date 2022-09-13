@@ -31,14 +31,6 @@ func (uf *UnionFind) Union(p, q int) {
 	uf.count -= 1
 }
 
-// func (uf *UnionFind) Find(x int) int {
-// 	for x != uf.parent[x] {
-// 		x = uf.parent[x]
-// 	}
-
-// 	return x
-// }
-
 func (uf *UnionFind) Find(x int) int {
 	if x != uf.parent[x] {
 		uf.parent[x] = uf.Find(uf.parent[x])

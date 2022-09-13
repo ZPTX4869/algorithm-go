@@ -1,10 +1,11 @@
 package debug
 
-import "fmt"
+func Space(level int) string {
+	res := ""
 
-func PrintIndent(content string, numIndent int) {
-	for i := 0; i < numIndent; i++ {
-		fmt.Print(" ")
+	for i := 0; i < level; i++ {
+		res += "  "
 	}
-	fmt.Println(content)
+
+	return res
 }
