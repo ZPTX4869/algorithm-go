@@ -10,6 +10,7 @@ func checkInclusion(s1 string, s2 string) bool {
 
 	valid := 0
 	lp, rp := 0, 0
+	
 	for rp < len(s2) {
 		c := s2[rp]
 		rp++
