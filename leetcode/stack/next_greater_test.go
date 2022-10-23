@@ -15,7 +15,6 @@ func Test_nextGreaterElement(t *testing.T) {
 		args args
 		want []int
 	}{
-		// TODO: Add test cases.
 		{
 			name: "case1",
 			args: args{
@@ -23,6 +22,14 @@ func Test_nextGreaterElement(t *testing.T) {
 				nums2: []int{1, 3, 4, 2},
 			},
 			want: []int{-1, 3, -1},
+		},
+		{
+			name: "case2",
+			args: args{
+				nums1: []int{2, 4},
+				nums2: []int{1, 2, 3, 4},
+			},
+			want: []int{3, -1},
 		},
 	}
 	for _, tt := range tests {
