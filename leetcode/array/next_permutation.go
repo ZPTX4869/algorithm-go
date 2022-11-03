@@ -2,6 +2,7 @@ package array
 
 import "sort"
 
+// 下一个排列：https://leetcode.cn/problems/next-permutation/
 func nextPermutation(nums []int) {
 	if len(nums) < 2 {
 		return
@@ -19,5 +20,10 @@ func nextPermutation(nums []int) {
 			sort.Ints(nums[i:])
 			return
 		}
+	}
+
+	// Reverse the whole slice if next permutation doesn't exist.
+	for i := 0; i < len(nums)/2; i++ {
+		nums[i], nums[len(nums)-1-i] = nums[len(nums)-1-i], nums[i]
 	}
 }
