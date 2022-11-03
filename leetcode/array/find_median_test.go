@@ -1,4 +1,4 @@
-package arr
+package array
 
 import "testing"
 
@@ -14,20 +14,20 @@ func Test_findMedianSortedArrays(t *testing.T) {
 	}{
 		// TODO: Add test cases.
 		{
-		    name: "case1",
-		    args: args{
+			name: "case1",
+			args: args{
 				nums1: []int{1, 3},
 				nums2: []int{2},
-		    },
-		    want: float64(2),
+			},
+			want: float64(2),
 		},
 		{
-		    name: "case2",
-		    args: args{
+			name: "case2",
+			args: args{
 				nums1: []int{1, 3},
 				nums2: []int{2, 4},
-		    },
-		    want: float64(2.5),
+			},
+			want: float64(2.5),
 		},
 		{
 			name: "case3",

@@ -1,4 +1,4 @@
-package arr
+package array
 
 import "algorithm-go/util/maths"
 

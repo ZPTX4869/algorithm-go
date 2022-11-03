@@ -1,4 +1,4 @@
-package arr
+package array
 
 // 缺失的第一个整数：https://leetcode.cn/problems/first-missing-positive/submissions/
 func firstMissingPositive(nums []int) int {

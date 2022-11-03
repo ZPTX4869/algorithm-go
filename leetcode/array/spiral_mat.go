@@ -1,4 +1,4 @@
-package arr
+package array
 
 // Spiral Matrix II: https://leetcode.cn/problems/spiral-matrix-ii/
 func generateMatrix(n int) [][]int {
