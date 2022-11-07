@@ -11,7 +11,6 @@ func Test_firstMissingPositive(t *testing.T) {
 		args args
 		want int
 	}{
-		// TODO: Add test cases.
 		{
 			"case1",
 			args{

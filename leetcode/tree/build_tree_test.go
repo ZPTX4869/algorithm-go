@@ -16,7 +16,7 @@ func Test_buildTree(t *testing.T) {
 		args args
 		want *TreeNode
 	}{
-		// TODO: Add test cases.
+		// : Add test cases.
 		{
 			"case1",
 			args{
@@ -61,7 +61,7 @@ func Test_buildTree2(t *testing.T) {
 		args args
 		want *TreeNode
 	}{
-		// TODO: Add test cases.
+		// : Add test cases.
 		{
 			"case1",
 			args{
@@ -90,7 +90,7 @@ func Test_buildTree3(t *testing.T) {
 		args args
 		want *TreeNode
 	}{
-		// TODO: Add test cases.
+		// : Add test cases.
 		{
 			"case1",
 			args{

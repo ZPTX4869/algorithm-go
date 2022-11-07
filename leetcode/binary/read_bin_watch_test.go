@@ -14,7 +14,7 @@ func Test_readBinaryWatch(t *testing.T) {
 		args args
 		want []string
 	}{
-		// TODO: Add test cases.
+		// : Add test cases.
 		{
 			name: "case1",
 			args: args{

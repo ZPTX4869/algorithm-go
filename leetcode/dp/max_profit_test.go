@@ -11,7 +11,7 @@ func Test_maxProfit(t *testing.T) {
 		args args
 		want int
 	}{
-		// TODO: Add test cases.
+		// : Add test cases.
 		{
 			"case1",
 			args{

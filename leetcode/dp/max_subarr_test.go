@@ -11,7 +11,7 @@ func Test_maxSubArray(t *testing.T) {
 		args args
 		want int
 	}{
-		// TODO: Add test cases.
+		// : Add test cases.
 		{
 			name: "case1",
 			args: args{
@@ -52,7 +52,7 @@ func Test_maxSubArray2(t *testing.T) {
 		args args
 		want int
 	}{
-		// TODO: Add test cases.
+		// : Add test cases.
 		{
 			name: "case1",
 			args: args{

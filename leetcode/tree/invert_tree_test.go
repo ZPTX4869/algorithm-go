@@ -15,7 +15,7 @@ func Test_invertTree(t *testing.T) {
 		args args
 		want *TreeNode
 	}{
-		// TODO: Add test cases.
+		// : Add test cases.
 		{
 			"case1",
 			args{
@@ -42,7 +42,7 @@ func Test_invertTree2(t *testing.T) {
 		args args
 		want *TreeNode
 	}{
-		// TODO: Add test cases.
+		// : Add test cases.
 		{
 			"case1",
 			args{

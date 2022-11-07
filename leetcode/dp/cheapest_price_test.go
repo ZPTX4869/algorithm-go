@@ -17,7 +17,7 @@ func Test_findCheapestPrice(t *testing.T) {
 		args args
 		want int
 	}{
-		// TODO: Add test cases.
+		// : Add test cases.
 		{
 			name: "case1",
 			args: args{
@@ -52,7 +52,7 @@ func Test_findCheapestPrice2(t *testing.T) {
 		args args
 		want int
 	}{
-		// TODO: Add test cases.
+		// : Add test cases.
 		{
 			name: "case1",
 			args: args{

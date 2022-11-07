@@ -11,7 +11,7 @@ func Test_equationsPossible(t *testing.T) {
 		args args
 		want bool
 	}{
-		// TODO: Add test cases.
+		// : Add test cases.
 		{
 			name: "case1",
 			args: args{

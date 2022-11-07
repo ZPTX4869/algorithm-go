@@ -12,31 +12,31 @@ func Test_isMatch(t *testing.T) {
 		args args
 		want bool
 	}{
-		// TODO: Add test cases.
+		// : Add test cases.
 		{
-            name: "case1",
-            args: args{
-               s: "aa",
-			   p: "a", 
-            },
-            want: false,
-        },
+			name: "case1",
+			args: args{
+				s: "aa",
+				p: "a",
+			},
+			want: false,
+		},
 		{
-            name: "case2",
-            args: args{
-               s: "aa",
-			   p: "a*", 
-            },
-            want: true,
-        },
+			name: "case2",
+			args: args{
+				s: "aa",
+				p: "a*",
+			},
+			want: true,
+		},
 		{
-            name: "case3",
-            args: args{
-               s: "ab",
-			   p: ".*", 
-            },
-            want: true,
-        },
+			name: "case3",
+			args: args{
+				s: "ab",
+				p: ".*",
+			},
+			want: true,
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {

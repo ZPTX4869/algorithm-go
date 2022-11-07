@@ -15,7 +15,6 @@ func Test_corpFlightBookings(t *testing.T) {
 		args args
 		want []int
 	}{
-		// TODO: Add test cases.
 		{
 			"case1",
 			args{

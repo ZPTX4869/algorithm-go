@@ -12,7 +12,6 @@ func Test_findMedianSortedArrays(t *testing.T) {
 		args args
 		want float64
 	}{
-		// TODO: Add test cases.
 		{
 			name: "case1",
 			args: args{
@@ -57,7 +56,6 @@ func Test_findMedianSortedArrays2(t *testing.T) {
 		args args
 		want float64
 	}{
-		// TODO: Add test cases.
 		{
 			name: "case1",
 			args: args{

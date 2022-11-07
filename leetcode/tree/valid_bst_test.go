@@ -14,7 +14,7 @@ func Test_isValidBST(t *testing.T) {
 		args args
 		want bool
 	}{
-		// TODO: Add test cases.
+		// : Add test cases.
 		{
 			"case1",
 			args{
