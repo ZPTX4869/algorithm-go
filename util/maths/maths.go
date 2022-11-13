@@ -2,7 +2,7 @@ package maths
 
 import "golang.org/x/exp/constraints"
 
-func Max[T constraints.Ordered](vals ...T) T {
+func Max(vals ...int) int {
 	res := vals[0]
 
 	for _, v := range vals[1:] {
@@ -10,11 +10,11 @@ func Max[T constraints.Ordered](vals ...T) T {
 			res = v
 		}
 	}
-	
+
 	return res
 }
 
-func Min[T constraints.Ordered](vals ...T) T {
+func Min(vals ...int) int {
 	res := vals[0]
 
 	for _, v := range vals[1:] {
@@ -22,14 +22,14 @@ func Min[T constraints.Ordered](vals ...T) T {
 			res = v
 		}
 	}
-	
+
 	return res
 }
 
 func Abs[T constraints.Signed](x T) T {
-    if x < 0 {
-        return -x
-    }
+	if x < 0 {
+		return -x
+	}
 
-    return x
+	return x
 }
