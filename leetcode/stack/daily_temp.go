@@ -1,8 +1,6 @@
 package stack
 
 // 每日温度：https://leetcode.cn/problems/daily-temperatures/
-// 类型：单调栈
-// 难度：Medium
 
 // 暴力枚举
 func dailyTemperatures(temperatures []int) []int {
