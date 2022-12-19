@@ -2,37 +2,33 @@ package list
 
 import (
 	"algorithm-go/structure/linkedlist"
+	"reflect"
 	"testing"
-
-	"github.com/stretchr/testify/assert"
 )
 
 func Test_removeNthFromEnd(t *testing.T) {
-	var head *ListNode
-	var n int
-	var res *ListNode
-
-	t.Run("case1", func(t *testing.T) {
-		head = linkedlist.FromSlice([]int{1, 2, 3, 4, 5}).Head
-		n = 2
-
-		res = removeNthFromEnd(head, n)
-		assert.Equal(t, []int{1, 2, 3, 5}, linkedlist.Traverse(res))
-	})
-
-	t.Run("case2", func(t *testing.T) {
-		head = linkedlist.FromSlice([]int{1, 2}).Head
-		n = 1
-
-		res = removeNthFromEnd(head, n)
-		assert.Equal(t, []int{1}, linkedlist.Traverse(res))
-	})
-
-	t.Run("case2", func(t *testing.T) {
-		head = linkedlist.FromSlice([]int{1, 2}).Head
-		n = 2
-
-		res = removeNthFromEnd(head, n)
-		assert.Equal(t, []int{2}, linkedlist.Traverse(res))
-	})
+	type args struct {
+		head *ListNode
+	}
+	tests := []struct {
+		name string
+		args args
+		want *ListNode
+	}{
+		{
+			name: "case1",
+			args: args{
+				head: linkedlist.FromSlice([]int{1, 2, 3, 4, 5}).Head,
+			},
+			want: linkedlist.FromSlice([]int{1, 2, 3, 5}).Head,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := removeNthFromEnd(tt.args.head, 2); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("removeNthFromEnd() = %v, want %v", got, tt.want)
+			}
+		})
+	}
 }
+

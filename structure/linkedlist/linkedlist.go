@@ -23,23 +23,24 @@ func FromSlice(vals []int) LinkedList {
 		Next: nil,
 	}
 
-	curr := head
+	cur := head
 	for _, val := range vals[1:] {
 		newNode := &ListNode{
 			Val:  val,
 			Next: nil,
 		}
 
-		curr.Next = newNode
-		curr = newNode
+		cur.Next = newNode
+		cur = newNode
 	}
 
 	return LinkedList{
 		Head: head,
-		Tail: curr,
+		Tail: cur,
 	}
 }
 
+// Traverse a `LinkedList`
 func (l *LinkedList) Traverse() []int {
 	var nums []int
 
@@ -52,6 +53,7 @@ func (l *LinkedList) Traverse() []int {
 	return nums
 }
 
+// Traverse from first node.
 func Traverse(head *ListNode) []int {
 	res := make([]int, 0)
 	for head != nil {
