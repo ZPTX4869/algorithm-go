@@ -22,6 +22,22 @@ func (t BinaryTree) Size() int {
 	return t.size
 }
 
+func (t *BinaryTree) LevelTraverse() []int {
+	return LevelTraverse(t.Root)
+}
+
+func (t *BinaryTree) PreorderTraverse() []int {
+	return PreorderTraverse(t.Root)
+}
+
+func (t *BinaryTree) InorderTraverse() []int {
+	return InorderTraverse(t.Root)
+}
+
+func (t *BinaryTree) PostorderTraverse() []int {
+	return PostorderTraverse(t.Root)
+}
+
 func FromSlice(vals []int) BinaryTree {
 	if len(vals) == 0 {
 		return BinaryTree{
@@ -29,11 +45,12 @@ func FromSlice(vals []int) BinaryTree {
 		}
 	}
 
-	var skip int
 	root := &TreeNode{Val: vals[0]}
 	queue := []*TreeNode{root}
 
 	i := 1
+	skip := 0
+
 	for i < len(vals) {
 		if vals[i] == Null {
 			skip += 1
@@ -72,6 +89,94 @@ func FromSlice(vals []int) BinaryTree {
 	}
 }
 
+const (
+	White = iota
+	Black
+)
+
+type pair struct {
+	node  *TreeNode
+	color int
+}
+
+func PreorderTraverse(root *TreeNode) []int {
+	ans := make([]int, 0)
+	stk := make([]*pair, 0)
+
+	stk = append(stk, &pair{root, White})
+
+	for len(stk) > 0 {
+		cur := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+
+		if cur.color == Black {
+			ans = append(ans, cur.node.Val)
+		} else {
+			if cur.node.Right != nil {
+				stk = append(stk, &pair{cur.node.Right, White})
+			}
+			if cur.node.Left != nil {
+				stk = append(stk, &pair{cur.node.Left, White})
+			}
+			stk = append(stk, &pair{cur.node, Black})
+		}
+	}
+
+	return ans
+}
+
+func InorderTraverse(root *TreeNode) []int {
+	ans := make([]int, 0)
+	stk := make([]*pair, 0)
+
+	stk = append(stk, &pair{root, White})
+
+	for len(stk) > 0 {
+		cur := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+
+		if cur.color == Black {
+			ans = append(ans, cur.node.Val)
+		} else {
+			if cur.node.Right != nil {
+				stk = append(stk, &pair{cur.node.Right, White})
+			}
+			stk = append(stk, &pair{cur.node, Black})
+			if cur.node.Left != nil {
+				stk = append(stk, &pair{cur.node.Left, White})
+			}
+		}
+	}
+
+	return ans
+}
+
+func PostorderTraverse(root *TreeNode) []int {
+	ans := make([]int, 0)
+	stk := make([]*pair, 0)
+
+	stk = append(stk, &pair{root, White})
+
+	for len(stk) > 0 {
+		cur := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+
+		if cur.color == Black {
+			ans = append(ans, cur.node.Val)
+		} else {
+			stk = append(stk, &pair{cur.node, Black})
+			if cur.node.Right != nil {
+				stk = append(stk, &pair{cur.node.Right, White})
+			}
+			if cur.node.Left != nil {
+				stk = append(stk, &pair{cur.node.Left, White})
+			}
+		}
+	}
+
+	return ans
+}
+
 func LevelTraverse(root *TreeNode) []int {
 	if root == nil {
 		return []int{}
@@ -99,75 +204,6 @@ func LevelTraverse(root *TreeNode) []int {
 	}
 
 	return result
-}
-
-func PreorderTraverse(root *TreeNode) []int {
-	res := make([]int, 0)
-	stack := make([]*TreeNode, 0)
-
-	for len(stack) != 0 || root != nil {
-		for root != nil {
-			res = append(res, root.Val)
-			stack = append(stack, root)
-			root = root.Left
-		}
-
-		currr := stack[len(stack)-1]
-		stack = stack[:len(stack)-1]
-
-		if currr.Right != nil {
-			root = currr.Right
-		}
-	}
-
-	return res
-}
-
-func InorderTraverse(root *TreeNode) []int {
-	res := make([]int, 0)
-	stack := make([]*TreeNode, 0)
-
-	for len(stack) != 0 || root != nil {
-		for root != nil {
-			stack = append(stack, root)
-			root = root.Left
-		}
-
-		currr := stack[len(stack)-1]
-		stack = stack[:len(stack)-1]
-		res = append(res, currr.Val)
-
-		if currr.Right != nil {
-			root = currr.Right
-		}
-	}
-
-	return res
-}
-
-func PostorderTraverse(root *TreeNode) []int {
-	res := make([]int, 0)
-	stack := make([]*TreeNode, 0)
-	var lastVisited *TreeNode
-
-	for len(stack) != 0 || root != nil {
-		for root != nil {
-			stack = append(stack, root)
-			root = root.Left
-		}
-
-		curr := stack[len(stack)-1]
-
-		if curr.Right != nil && curr.Right != lastVisited {
-			root = curr.Right
-		} else {
-			stack = stack[:len(stack)-1]
-			lastVisited = curr
-			res = append(res, curr.Val)
-		}
-	}
-
-	return res
 }
 
 func LevelSearch(root *TreeNode, tar int) *TreeNode {

@@ -1,9 +1,7 @@
 package unionfind
 
 type UnionFind struct {
-	// 联通分量
-	count int
-	// 父节点数组
+	count  int
 	parent []int
 }
 

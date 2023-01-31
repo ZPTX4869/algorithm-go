@@ -1,7 +1,5 @@
 package maths
 
-import "golang.org/x/exp/constraints"
-
 func Max(vals ...int) int {
 	res := vals[0]
 
@@ -26,7 +24,7 @@ func Min(vals ...int) int {
 	return res
 }
 
-func Abs[T constraints.Signed](x T) T {
+func Abs(x int) int {
 	if x < 0 {
 		return -x
 	}
