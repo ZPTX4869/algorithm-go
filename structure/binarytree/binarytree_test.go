@@ -16,28 +16,28 @@ func TestFromSlice(t *testing.T) {
 
 func TestLevelTraverse(t *testing.T) {
 	tree := FromSlice([]int{1, 2, 3, Null, 4, Null, 5})
-	ans := tree.LevelTraverse()
+	ans := tree.TraverseLevel()
 
 	assert.Equal(t, []int{1, 2, 3, 4, 5}, ans)
 }
 
 func TestPreorderTraverse(t *testing.T) {
 	tree := FromSlice([]int{1, 2, 3, Null, 4, Null, 5})
-	ans := tree.PreorderTraverse()
+	ans := tree.TraversePreorder()
 
 	assert.Equal(t, []int{1, 2, 4, 3, 5}, ans)
 }
 
 func TestInorderTraverse(t *testing.T) {
 	tree := FromSlice([]int{1, 2, 3, Null, 4, Null, 5})
-	ans := tree.InorderTraverse()
+	ans := tree.TraverseInorder()
 
 	assert.Equal(t, []int{2, 4, 1, 3, 5}, ans)
 }
 
 func TestPostorderTraverse(t *testing.T) {
 	tree := FromSlice([]int{1, 2, 3, Null, 4, Null, 5})
-	ans := tree.PostorderTraverse()
+	ans := tree.TraversePostorder()
 
 	assert.Equal(t, []int{4, 2, 5, 3, 1}, ans)
 }

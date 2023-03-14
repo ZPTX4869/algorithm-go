@@ -22,19 +22,19 @@ func (t BinaryTree) Size() int {
 	return t.size
 }
 
-func (t *BinaryTree) LevelTraverse() []int {
+func (t *BinaryTree) TraverseLevel() []int {
 	return LevelTraverse(t.Root)
 }
 
-func (t *BinaryTree) PreorderTraverse() []int {
+func (t *BinaryTree) TraversePreorder() []int {
 	return PreorderTraverse(t.Root)
 }
 
-func (t *BinaryTree) InorderTraverse() []int {
+func (t *BinaryTree) TraverseInorder() []int {
 	return InorderTraverse(t.Root)
 }
 
-func (t *BinaryTree) PostorderTraverse() []int {
+func (t *BinaryTree) TraversePostorder() []int {
 	return PostorderTraverse(t.Root)
 }
 
